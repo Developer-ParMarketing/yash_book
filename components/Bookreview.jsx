@@ -16,11 +16,11 @@ const cormorant = Cormorant_Garamond({
 const Bookreview = () => {
     return (
         <section className="w-full bg-[#f7f5ef] py-16 px-6 md:px-14 lg:px-20">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-80 xl:gap-80 lg:gap-80  items-start">
 
                 {/* LEFT IMAGE */}
 
-                <div className="space-y-8">
+                <div className="space-y-8 order-2 md:order-1">
 
                     {/* TITLE */}
                     <div>
@@ -101,7 +101,7 @@ const Bookreview = () => {
 
 
                 {/* RIGHT CONTENT */}
-                <div className="flex justify-center md:justify-start">
+                <div className="flex justify-center md:justify-start order-1 md:order-2">
                     <img
                         src="https://img.freepik.com/premium-vector/creative-vector-modern-book-cover-design-company-brochure-annual-report-design-template_812472-1874.jpg?semt=ais_wordcount_boost&w=740&q=80"
                         alt="Book Cover"

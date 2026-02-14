@@ -77,39 +77,7 @@ const Hero = () => {
 
 
                     {/* BIG NAME TEXT */}
-                    {/* <h1
-                        className={`
-    absolute top-1/2 left-0 w-full -translate-y-1/2
-    uppercase text-black pointer-events-none z-30
-    flex flex-col items-center gap-70
-    sm:block
-    ${cormorant.className}
-  `}
-                    >
-                        <span
-                            className="
-      relative
-      sm:absolute
-      sm:left-[-3vw] md:left-[10] lg:left-[10] xl:left-[-80]
-      text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
-      leading-none font-bold
-    "
-                        >
-                            yashasvi
-                        </span>
 
-                        <span
-                            className="
-      relative
-      sm:absolute
-      sm:right-[-3vw] md:left-[550] lg:left-[700] xl:left-[835]
-      text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
-      leading-none font-bold
-    "
-                        >
-                            prasad
-                        </span>
-                    </h1> */}
                     <h1
                         className={`
     absolute top-1/2 left-0 w-full -translate-y-1/2

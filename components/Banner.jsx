@@ -64,15 +64,19 @@ const Banner = () => {
                     <div className="group flex items-center gap-4 mt-6 justify-center md:justify-start cursor-pointer w-fit mx-auto md:mx-0">
                         <div className="w-12 h-px bg-black transition-all duration-300 group-hover:w-6"></div>
 
-                        <button
+                        <a
+                            href="https://example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`
-                ${cinzel.className}
-                text-xs tracking-[0.35em]
-                uppercase
-              `}
+                            ${cinzel.className}
+                            text-xs tracking-[0.35em]
+                            uppercase
+                        `}
                         >
                             Explore the Book
-                        </button>
+                        </a>
+
                     </div>
                 </div>
 

@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { Playfair_Display, Cinzel } from "next/font/google";
+import { Playfair_Display, Cinzel, Cormorant_Garamond } from "next/font/google";
+import { FaLinkedin } from "react-icons/fa";
+
 
 const playfair = Playfair_Display({
     subsets: ["latin"],
@@ -11,6 +13,11 @@ const playfair = Playfair_Display({
 const cinzel = Cinzel({
     subsets: ["latin"],
     weight: ["400", "500"],
+});
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
 });
 
 const Post = () => {
@@ -34,7 +41,7 @@ const Post = () => {
 
                     <p
                         className={`
-              ${cinzel.className}
+              ${cormorant.className}
             
               text-base sm:text-lg md:text-xl
               leading-relaxed sm:leading-loose
@@ -80,7 +87,7 @@ const Post = () => {
 
                     <p
                         className={`
-              ${cinzel.className}
+              ${cormorant.className}
               mt-3 sm:mt-5 md:mt-7
               text-base sm:text-lg md:text-xl
               leading-relaxed sm:leading-loose
@@ -98,7 +105,18 @@ const Post = () => {
                         rather than lessons, his work spans decision-making, the psychology of
                         endurance, and the search for coherence in modern life.
                     </p>
+                    <div className="pt-10 flex justify-center md:justify-start">
+                        <a
+                            href="https://www.linkedin.com/in/YOUR-PROFILE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-700 hover:text-blue-600 transition duration-300"
+                        >
+                            <FaLinkedin className="text-3xl sm:text-4xl cursor-pointer" />
+                        </a>
+                    </div>
                 </section>
+
 
             </div>
         </div>

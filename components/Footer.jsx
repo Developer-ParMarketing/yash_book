@@ -53,7 +53,10 @@ const Footer = () => {
                 className={` border-[#1a1a1a] flex flex-col md:flex-row justify-between items-center px-7.5 py-9.5 text-[18px] font-medium  ${cormorant.className}`}
             >
                 <p>Written with heart</p>
-                <p>Copyright 2020 © QodeInteractive</p>
+                <p>
+                    Copyright {new Date().getFullYear()} © QodeInteractive
+                </p>
+
             </div>
 
         </footer>

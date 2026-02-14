@@ -16,8 +16,8 @@ const page = () => {
       <Banner />
       <Bookreview />
       <Buybook />
-      <Subscribe />
-      <Imggallery />
+      {/* <Subscribe />
+      <Imggallery /> */}
 
 
 

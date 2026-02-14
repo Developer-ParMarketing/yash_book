@@ -2,6 +2,11 @@
 
 import React from "react";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
+import { FaAmazon } from "react-icons/fa";
+import { SiFlipkart } from "react-icons/si";
+import { MdMenuBook } from "react-icons/md";
+import { BsGlobe } from "react-icons/bs";
+
 
 const cinzel = Cinzel({
     subsets: ["latin"],
@@ -68,25 +73,52 @@ const Buybook = () => {
                         </p>
 
                         {/* PURCHASE BUTTONS */}
+
                         <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
 
-                            <button className="px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition">
+                            <a
+                                href="https://kdp.amazon.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                            >
+                                <FaAmazon />
                                 Amazon KDP (International)
-                            </button>
+                            </a>
 
-                            <button className="px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition">
+                            <a
+                                href="https://www.flipkart.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                            >
+                                <SiFlipkart />
                                 Notion Press / Flipkart (India)
-                            </button>
+                            </a>
 
-                            <button className="px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition">
+                            <a
+                                href="https://draft2digital.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                            >
+                                <MdMenuBook />
                                 Draft2Digital
-                            </button>
+                            </a>
 
-                            <button className="px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition">
+                            <a
+                                href="https://www.amazon.in"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                            >
+                                <FaAmazon />
                                 Amazon India
-                            </button>
+                            </a>
 
                         </div>
+
+
 
                     </div>
 
