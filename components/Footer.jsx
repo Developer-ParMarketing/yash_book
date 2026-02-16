@@ -36,15 +36,15 @@ const Footer = () => {
                 <div
                     className={`flex items-center gap-7.5 text-[18px] italic tracking-[0.08em] ${cormorant.className} font-medium`}
                 >
-                    <Link href="#" className="hover:opacity-70 transition">
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61587945454452" className="hover:opacity-70 transition">
                         Fb.
-                    </Link>
-                    <Link href="#" className="hover:opacity-70 transition">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/whenstayingstopsmakingsense/" className="hover:opacity-70 transition">
                         In.
-                    </Link>
-                    <Link href="#" className="hover:opacity-70 transition">
-                        Be.
-                    </Link>
+                    </a>
+                    <a target="_blank" href="https://www.linkedin.com/company/when-staying-stops-making-sense/?viewAsMember=true" className="hover:opacity-70 transition">
+                        Ld.
+                    </a>
                 </div>
 
             </div>
