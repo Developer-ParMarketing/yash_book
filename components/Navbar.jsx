@@ -104,26 +104,26 @@ const Navbar = () => {
                     ))}
 
                     {/* Desktop Hamburger */}
-                    <button className="ml-4 cursor-pointer">
-                        {/* <Menu size={22} strokeWidth={1.5} /> */}
+                    {/* <button className="ml-4 cursor-pointer">
+                      
                         <div className="group flex flex-col gap-1.5 cursor-pointer items-end w-8">
 
-                            {/* long → small */}
+                           
                             <span className="h-0.5 w-full bg-black transition-all duration-300 group-hover:w-5"></span>
 
-                            {/* small → long */}
+                           
                             <span className="h-0.5 w-5 bg-black transition-all duration-300 group-hover:w-full"></span>
 
-                            {/* medium → long */}
+                           
                             <span className="h-0.5 w-6 bg-black transition-all duration-300 group-hover:w-full"></span>
 
-                            {/* long → small */}
+                            
                             <span className="h-0.5 w-full bg-black transition-all duration-300 group-hover:w-6"></span>
 
                         </div>
 
 
-                    </button>
+                    </button> */}
                 </nav>
 
                 {/* Mobile Toggle */}

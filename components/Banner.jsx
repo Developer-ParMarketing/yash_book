@@ -82,12 +82,37 @@ const Banner = () => {
 
                 {/* RIGHT LOGOS */}
                 <div className="grid grid-cols-3 gap-6 place-items-center">
-                    <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client1.png" className="h-10 object-contain" />
+                    {/* <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client1.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client2.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client3.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client4.png " className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client5.png" className="h-10 object-contain" />
-                    <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client2.png" className="h-10 object-contain" />
+                    <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client2.png" className="h-10 object-contain" /> */}
+                    <a href="https://kdp.amazon.com"
+                        target="_blank">
+                        <img src='amazonekindle.png'
+                            alt="amazon icon"
+                            width={100}
+                            height={10}
+                        />
+                    </a>
+                    <a href="https://kdp.amazon.com"
+                        target="_blank">
+                        <img src='AppleBooksLogo.png'
+                            alt="AppleBooksLogo icon"
+                            width={100}
+                            height={10}
+                        />
+                    </a>
+                    <a href="https://kdp.amazon.com"
+                        target="_blank">
+                        <img src="smashwordslogo.png" alt="smashwordslogo icon"
+                            width={100}
+                            height={10} />
+                    </a>
+
+
+
                 </div>
 
             </div>

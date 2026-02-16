@@ -37,7 +37,7 @@ const Buybook = () => {
                 sm:w-[320px]
                 md:w-[360px]
                 lg:w-[420px]
-                xl:w-[460px]
+                xl:w-[650px]
                 object-contain
                 drop-shadow-2xl
               "
