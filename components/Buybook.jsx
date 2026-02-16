@@ -33,7 +33,7 @@ const Buybook = () => {
                             src="book2.png"
                             alt="Book Cover"
                             className="
-                w-[260px]
+                w-[320px]
                 sm:w-[320px]
                 md:w-[360px]
                 lg:w-[420px]
