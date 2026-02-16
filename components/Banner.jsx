@@ -15,7 +15,7 @@ const cormorant = Cormorant_Garamond({
 
 const Banner = () => {
     return (
-        <section className="w-full bg-[#f3efe6] py-16 md:py-20 px-6 md:px-14 lg:px-20">
+        <section id="The_Book" className="w-full bg-[#f3efe6] py-16 md:py-20 px-6 md:px-14 lg:px-20">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
 
                 {/* LEFT SIDE IMAGE */}

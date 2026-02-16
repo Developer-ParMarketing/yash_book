@@ -16,23 +16,28 @@ const Navbar = () => {
     const menuItems = [
         {
             name: "home",
-            dropdown: ["Main Home", "Publisher Home", "Alternating Posts"],
+            // dropdown: ["Main Home", "Publisher Home", "Alternating Posts"],
+            pointer: "home",
         },
         {
-            name: "pages",
-            dropdown: ["About", "Contact", "Pricing"],
+            name: "Philosophy",
+            // dropdown: ["About", "Contact", "Pricing"],
+            pointer: 'Philosophy'
         },
         {
-            name: "blog",
-            dropdown: ["Grid", "Masonry", "Sidebar"],
+            name: "The Book",
+            // dropdown: ["Grid", "Masonry", "Sidebar"],
+            pointer: 'The_Book'
         },
         {
-            name: "shop",
-            dropdown: ["Products", "Cart", "Checkout"],
+            name: "Key Ideas",
+            // dropdown: ["Products", "Cart", "Checkout"],
+            pointer: 'Key_Ideas'
         },
         {
-            name: "landing",
-            dropdown: ["Landing 1", "Landing 2"],
+            name: "Buy the Book",
+            // dropdown: ["Landing 1", "Landing 2"],
+            pointer: 'Buy_the_Book'
         },
     ];
 
@@ -67,12 +72,13 @@ const Navbar = () => {
                             )}
 
                             {/* Parent */}
-                            <Link href="#" className="py-6 font-semibold tracking-[5px] leading-loose">
+                            <Link href={`#${item.pointer}`} className="py-6 font-semibold tracking-[5px] leading-loose">
                                 {item.name}
                             </Link>
 
+
                             {/* Dropdown */}
-                            <div
+                            {/* <div
                                 className="
                 absolute left-0 top-full w-60 bg-white border border-[#e5e2d8]
                 shadow-[0_10px_25px_rgba(0,0,0,0.08)]
@@ -93,7 +99,7 @@ const Navbar = () => {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
 
@@ -142,12 +148,17 @@ const Navbar = () => {
                                     onClick={() => toggleMenu(item.name)}
                                     className="flex justify-between w-full font-semibold"
                                 >
-                                    <Link href="#">{item.name}</Link>
-                                    <span>{openMenu === item.name ? "-" : "+"}</span>
+                                    {/* <Link href="#">{item.name}</Link> */}
+                                    <Link href={`#${item.pointer}`}>
+                                        {item.name}
+                                        {console.log(item.name)}
+                                    </Link>
+
+                                    {/* <span>{openMenu === item.name ? "-" : "+"}</span> */}
                                 </button>
 
                                 {/* Dropdown */}
-                                {openMenu === item.name && (
+                                {/* {openMenu === item.name && (
                                     <ul className="pl-4 mt-2 space-y-2 normal-case text-gray-600">
                                         {item.dropdown.map((sub) => (
                                             <li key={sub}>
@@ -155,7 +166,7 @@ const Navbar = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                )}
+                                )} */}
                             </div>
                         ))}
 

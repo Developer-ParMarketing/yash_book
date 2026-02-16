@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 
 const Post = () => {
     return (
-        <div className="min-h-screen bg-[#f9f8f4] py-16 sm:py-20 md:py-24 lg:py-28 px-5 sm:px-8 md:px-12 lg:px-16">
+        <div id="Philosophy" className="min-h-screen bg-[#f9f8f4] py-16 sm:py-20 md:py-24 lg:py-28 px-5 sm:px-8 md:px-12 lg:px-16">
             <div className="max-w-7xl   mx-auto space-y-20 sm:space-y-28 md:space-y-36">
 
                 {/* Philosophy Section */}

@@ -6,6 +6,7 @@ import { FaAmazon } from "react-icons/fa";
 import { SiFlipkart } from "react-icons/si";
 import { MdMenuBook } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
+import Image from "next/image";
 
 
 const cinzel = Cinzel({
@@ -20,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 
 const Buybook = () => {
     return (
-        <section className="w-full bg-[#f3f1ea] py-20 px-6 md:px-14 lg:px-20">
+        <section id="Buy_the_Book" className="w-full bg-[#f3f1ea] py-20 px-6 md:px-14 lg:px-20">
 
             <div className="max-w-7xl xl:max-w-[1400px] mx-auto">
 
@@ -82,7 +83,12 @@ const Buybook = () => {
                                 rel="noopener noreferrer"
                                 className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
                             >
-                                <FaAmazon />
+                                {/* <FaAmazon /> */}
+                                <Image src={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACAUlEQVRYhe3XvWsUURQF8N/4QVCMoKIQ/MZOQSzThAQLFVtFBREFkSES7SIW+g8IKcRqQLARUUuLxaRTjFpKFLEICKuQiEIEQRQlY7ETWCZvNy/rBAtz4BV37r3nnH28eXOXZfzvSDroWY9BDGAn1uATXuI23lRlLoRbyBdYY0slXosQn1uPqxY/EhCZxk08aGFia5UGnpXIx0v5owEDZ2OIV0QaeIVJ/CjiwVK+FujZEkO8KtLAUGRdM1ZWaaCMfvRhL/ZgR6BmdikM3MDwInsqM1DH9sDzcXzAqUoctcB980/5+VJNOX+lKvHVAfKRQF1HBmJew4OBZ49K8cZATdRbEGMgRN5dii8GavpiDMRgwPztfd2U7w/k59a+qky0Ephpk8vxvioD1xYQytFbin9iW1UG4HoL4SdYV9TMmaiL/M7Mm4jyTA92J6nnLXoGsAlf8QLfS/keTBVcB3BZ47qewlCS+tLWQNE4inqSuhDzK1ohz5zA20JnAv1J6mlzTXCbktRhrM0zeZ791Y32EaMauzRbFmeBoTTPnMOdIqzhHmpJaqZNTy+O4RK6cBLvMJykzizKQEHYjYcaY1kzJvEZvzQupl3Y0JQfw/Ek9S3PHErS8LAaPZYXh/MqTmscwhCmcRcjSWo6hreT/wXyTBf2Y3PBMYWJJPW7E75l/FP8AVT1u05R7Q4xAAAAAElFTkSuQmCC'}
+                                    alt="amazon icon"
+                                    width={40}
+                                    height={40}
+                                />
                                 Amazon KDP (International)
                             </a>
 
