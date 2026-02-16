@@ -49,12 +49,7 @@ const Post = () => {
              
             `}
                     >
-                        His work explores the tension between who we are and who we are expected
-                        to be, focusing on the subtle ways judgment, identity, and emotion shape
-                        the paths we stay on or leave behind. Rather than offering prescriptions,
-                        he focuses on structure, pattern, and the hidden logic behind human
-                        behavior. The aim is to help readers recognize what they already sense
-                        and navigate their choices without guilt, fear, or self-betrayal.
+                        His work explores the tension between who we are and who we are expected to be, focusing on the subtle ways judgment, identity, and emotion shape the paths we stay on or leave behind. Rather than offering prescriptions, he focuses on structure, pattern, and the hidden logic behind human behavior. The aim is to help readers recognize what they already sense and navigate their choices without guilt, fear, or self-betrayal.
                     </p>
                 </section>
 
@@ -95,14 +90,8 @@ const Post = () => {
            
             `}
                     >
-                        His professional work centers on optimizing systems—whether for regulatory
-                        compliance, operational resilience, or agile delivery. Over the past 15+ years,
-                        Yashasvi has observed a parallel pattern in how individuals and teams approach
-                        personal and professional commitments: we often optimize for persistence
-                        by default, without evaluating the long-term returns. His writing grows
-                        out of close observation of the small frictions and quiet hesitations
-                        that define everyday life. Drawing on personal experiences as lenses
-                        rather than lessons, his work spans decision-making, the psychology of
+                        His professional work centers on optimizing systems—whether for regulatory compliance, operational resilience, or agile delivery. Over the past 15+ years, Yashasvi has observed a parallel pattern in how individuals and teams approach personal and professional commitments: we often optimize for persistence by default, without evaluating the long-term returns.
+                        His writing grows out of close observation of the small frictions and quiet hesitations that define everyday life. Drawing on personal experiences as lenses rather than lessons, his work spans decision-making, the psychology of endurance, and the search for coherence in modern life.ychology of
                         endurance, and the search for coherence in modern life.
                     </p>
                     <div className="pt-10 flex justify-center md:justify-start">

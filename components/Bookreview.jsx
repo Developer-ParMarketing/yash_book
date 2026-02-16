@@ -76,23 +76,19 @@ const Bookreview = () => {
 
                         <ul className={`${cormorant.className} space-y-3 text-gray-700`}>
                             <li>
-                                <strong>The Constraint Stack:</strong> Paralysis is rarely caused by a single fear.
-                                Financial pressure, identity, expectations, and cognitive bias quietly stack together.
+                                <strong>The Constraint Stack:</strong> Paralysis is rarely caused by a single fear. It emerges when financial pressure, identity, social expectations, and cognitive bias quietly stack together, making even obvious decisions feel impossible.
                             </li>
 
                             <li>
-                                <strong>The "No More Data" Rule:</strong> When staying stops producing new information,
-                                it becomes delay rather than thoughtful patience.
+                                <strong>The "No More Data" Rule:</strong> When continued staying no longer produces added information, staying stops being thoughtful. It becomes a delay in acting on what you already know.
                             </li>
 
                             <li>
-                                <strong>The Declining Returns Curve:</strong> Elite performers exit at the plateau to
-                                preserve energy and future optionality.
+                                <strong>The Declining Returns Curve:</strong> Most pursuits follow a curve where effort eventually stops compounding. Elite performers exit at the plateau to preserve the energy and optionality required for what comes next.
                             </li>
 
                             <li>
-                                <strong>The QUIT Matrix™:</strong> A strategic quitting framework organizing Energy,
-                                Trajectory, Identity, and Opportunity Cost.
+                                <strong>The QUIT Matrix™:</strong> Most pursuits follow a curve where effort eventually stops compounding. Elite performers exit at the plateau to preserve the energy and optionality required for what comes next.
                             </li>
                         </ul>
                     </div>
@@ -165,23 +161,19 @@ const Bookreview = () => {
 
                             <ul className={`${cormorant.className} space-y-3 text-gray-700 text-left`}>
                                 <li>
-                                    <strong>The Constraint Stack:</strong> Paralysis is rarely caused by a single fear.
-                                    Financial pressure, identity, expectations, and cognitive bias quietly stack together.
+                                    <strong>The Constraint Stack:</strong> Paralysis is rarely caused by a single fear. It emerges when financial pressure, identity, social expectations, and cognitive bias quietly stack together, making even obvious decisions feel impossible.
                                 </li>
 
                                 <li>
-                                    <strong>The "No More Data" Rule:</strong> When staying stops producing new information,
-                                    it becomes delay rather than thoughtful patience.
+                                    <strong>The "No More Data" Rule:</strong> When continued staying no longer produces added information, staying stops being thoughtful. It becomes a delay in acting on what you already know.
                                 </li>
 
                                 <li>
-                                    <strong>The Declining Returns Curve:</strong> Elite performers exit at the plateau to
-                                    preserve energy and future optionality.
+                                    <strong>The Declining Returns Curve:</strong> Most pursuits follow a curve where effort eventually stops compounding. Elite performers exit at the plateau to preserve the energy and optionality required for what comes next.
                                 </li>
 
                                 <li>
-                                    <strong>The QUIT Matrix™:</strong> A strategic quitting framework organizing Energy,
-                                    Trajectory, Identity, and Opportunity Cost.
+                                    <strong>The QUIT Matrix™:</strong> Most pursuits follow a curve where effort eventually stops compounding. Elite performers exit at the plateau to preserve the energy and optionality required for what comes next.
                                 </li>
                             </ul>
                         </div>

@@ -64,9 +64,8 @@ const Buybook = () => {
                         <p className={`${cormorant.className} text-base md:text-lg leading-relaxed text-gray-700`}>
                             <strong>Read an Excerpt:</strong><br />
                             "Most people don't say, 'I don't want to quit.' They say, 'I can't quit.'
-                            That distinction matters. Paralysis is not a personal flaw. Multiple
-                            constraints are active at once, and the cost of leaving outweighs the
-                            benefit. That is not a weakness. That is decision-making under pressure."
+                            That distinction matters. Paralysis is not a personal flaw. The more accurate interpretation is: Multiple constraints are active at once, and the cost of leaving currently outweighs the benefit. That is not a weakness. That is decision-making under pressure."
+
                         </p>
 
                         <p className={`${cormorant.className} text-base`}>
