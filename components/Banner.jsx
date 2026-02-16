@@ -21,7 +21,7 @@ const Banner = () => {
                 {/* LEFT SIDE IMAGE */}
                 <div className="w-full flex justify-center md:justify-start">
                     <img
-                        src="https://img.freepik.com/premium-vector/creative-vector-modern-book-cover-design-company-brochure-annual-report-design-template_812472-1874.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                        src="book1.png"
                         alt="Writing Expo"
                         className="
              w-60

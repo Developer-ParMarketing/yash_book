@@ -30,7 +30,7 @@ const Buybook = () => {
                     {/* LEFT BOOK IMAGE */}
                     <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
                         <img
-                            src="https://img.freepik.com/premium-vector/creative-vector-modern-book-cover-design-company-brochure-annual-report-design-template_812472-1874.jpg"
+                            src="book2.png"
                             alt="Book Cover"
                             className="
                 w-[260px]
@@ -81,38 +81,46 @@ const Buybook = () => {
                                 href="https://kdp.amazon.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2   text-sm tracking-wide transition"
                             >
                                 {/* <FaAmazon /> */}
-                                <Image src={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACAUlEQVRYhe3XvWsUURQF8N/4QVCMoKIQ/MZOQSzThAQLFVtFBREFkSES7SIW+g8IKcRqQLARUUuLxaRTjFpKFLEICKuQiEIEQRQlY7ETWCZvNy/rBAtz4BV37r3nnH28eXOXZfzvSDroWY9BDGAn1uATXuI23lRlLoRbyBdYY0slXosQn1uPqxY/EhCZxk08aGFia5UGnpXIx0v5owEDZ2OIV0QaeIVJ/CjiwVK+FujZEkO8KtLAUGRdM1ZWaaCMfvRhL/ZgR6BmdikM3MDwInsqM1DH9sDzcXzAqUoctcB980/5+VJNOX+lKvHVAfKRQF1HBmJew4OBZ49K8cZATdRbEGMgRN5dii8GavpiDMRgwPztfd2U7w/k59a+qky0Ephpk8vxvioD1xYQytFbin9iW1UG4HoL4SdYV9TMmaiL/M7Mm4jyTA92J6nnLXoGsAlf8QLfS/keTBVcB3BZ47qewlCS+tLWQNE4inqSuhDzK1ohz5zA20JnAv1J6mlzTXCbktRhrM0zeZ791Y32EaMauzRbFmeBoTTPnMOdIqzhHmpJaqZNTy+O4RK6cBLvMJykzizKQEHYjYcaY1kzJvEZvzQupl3Y0JQfw/Ek9S3PHErS8LAaPZYXh/MqTmscwhCmcRcjSWo6hreT/wXyTBf2Y3PBMYWJJPW7E75l/FP8AVT1u05R7Q4xAAAAAElFTkSuQmCC'}
+                                <img src='amazonekindle.png'
                                     alt="amazon icon"
-                                    width={40}
-                                    height={40}
+                                    width={100}
+                                    height={10}
                                 />
-                                Amazon KDP (International)
+                                {/* Amazon KDP (International) */}
                             </a>
 
                             <a
                                 href="https://www.flipkart.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2   text-sm tracking-wide transition"
                             >
-                                <SiFlipkart />
-                                Notion Press / Flipkart (India)
+                                {/* <SiFlipkart /> */}
+                                <img src='AppleBooksLogo.png'
+                                    alt="AppleBooksLogo icon"
+                                    width={100}
+                                    height={10}
+                                />
+                                {/* Notion Press / Flipkart (India) */}
                             </a>
 
                             <a
                                 href="https://draft2digital.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2  text-sm tracking-wide  transition"
                             >
-                                <MdMenuBook />
-                                Draft2Digital
+                                {/* <MdMenuBook /> */}
+                                <img src="smashwordslogo.png" alt="smashwordslogo icon"
+                                    width={100}
+                                    height={10} />
+                                {/* Draft2Digital */}
                             </a>
 
-                            <a
+                            {/* <a
                                 href="https://www.amazon.in"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -120,7 +128,7 @@ const Buybook = () => {
                             >
                                 <FaAmazon />
                                 Amazon India
-                            </a>
+                            </a> */}
 
                         </div>
 
