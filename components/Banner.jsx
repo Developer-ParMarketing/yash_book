@@ -81,14 +81,14 @@ const Banner = () => {
                 </div>
 
                 {/* RIGHT LOGOS */}
-                <div className="grid grid-cols-3 gap-6 place-items-center">
+                <div className="grid grid-cols-2 gap-6 place-items-center">
                     {/* <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client1.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client2.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client3.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client4.png " className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client5.png" className="h-10 object-contain" />
                     <img src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/08/client2.png" className="h-10 object-contain" /> */}
-                    <a href="https://kdp.amazon.com"
+                    <a href="https://amzn.in/d/00RSj7Rp"
                         target="_blank">
                         <img src='amazonekindle.png'
                             alt="amazon icon"
@@ -96,17 +96,22 @@ const Banner = () => {
                             height={10}
                         />
                     </a>
-                    <a href="https://kdp.amazon.com"
-                        target="_blank">
-                        <img src='AppleBooksLogo.png'
-                            alt="AppleBooksLogo icon"
-                            width={100}
-                            height={10}
-                        />
-                    </a>
-                    <a href="https://kdp.amazon.com"
+
+                    <a href="https://www.smashwords.com/books/view/1961153"
                         target="_blank">
                         <img src="smashwordslogo.png" alt="smashwordslogo icon"
+                            width={100}
+                            height={10} />
+                    </a>
+                    <a href="https://books2read.com/b/b5ykLl"
+                        target="_blank">
+                        <img src="book2read.webp" alt="Book2read icon"
+                            width={100}
+                            height={10} />
+                    </a>
+                    <a href="https://amzn.in/d/0aNeCkzb"
+                        target="_blank">
+                        <img src="amazon.png" alt="amazon icon"
                             width={100}
                             height={10} />
                     </a>

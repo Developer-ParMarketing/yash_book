@@ -126,7 +126,7 @@ const Bookreview = () => {
 
                         </h2>
                         <p
-                            className={`${cormorant.className} text-base md:text-lg leading-relaxed text-gray-800 py-10`}
+                            className={`${cormorant.className} text-base md:text-lg leading-relaxed text-gray-800`}
                         >
                             <strong>Core Premise:</strong><br />
                             You already know something isn’t working. The harder question is why you’re still there.
@@ -135,7 +135,9 @@ const Bookreview = () => {
                             self-betrayal.
                         </p>
                     </div>
-                    <div className="flex w-full justify-between gap-10">
+                    {/* <div className="flex w-full justify-between "> */}
+                    <div className="flex flex-col md:flex-row w-full md:justify-between gap-10">
+
 
                         <div className="">
                             <h3 className={`${cinzel.className} text-xl md:text-2xl py-5 text-center`}>

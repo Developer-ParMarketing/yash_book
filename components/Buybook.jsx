@@ -78,7 +78,7 @@ const Buybook = () => {
                         <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
 
                             <a
-                                href="https://kdp.amazon.com"
+                                href="https://amzn.in/d/00RSj7Rp"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group hover:tracking-widest flex items-center gap-2 px-5 py-2   text-sm tracking-wide transition"
@@ -93,22 +93,20 @@ const Buybook = () => {
                             </a>
 
                             <a
-                                href="https://www.flipkart.com"
+                                href="https://books2read.com/b/b5ykLl"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group hover:tracking-widest flex items-center gap-2 px-5 py-2   text-sm tracking-wide transition"
                             >
                                 {/* <SiFlipkart /> */}
-                                <img src='AppleBooksLogo.png'
-                                    alt="AppleBooksLogo icon"
+                                <img src="book2read.webp" alt="Book2read icon"
                                     width={100}
-                                    height={10}
-                                />
+                                    height={10} />
                                 {/* Notion Press / Flipkart (India) */}
                             </a>
 
                             <a
-                                href="https://draft2digital.com"
+                                href="https://www.smashwords.com/books/view/1961153"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group hover:tracking-widest flex items-center gap-2 px-5 py-2  text-sm tracking-wide  transition"
@@ -120,15 +118,18 @@ const Buybook = () => {
                                 {/* Draft2Digital */}
                             </a>
 
-                            {/* <a
-                                href="https://www.amazon.in"
+                            <a
+                                href="https://amzn.in/d/0aNeCkzb"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 border border-black text-sm tracking-wide hover:bg-black hover:text-white transition"
+                                className="group hover:tracking-widest flex items-center gap-2 px-5 py-2 text-sm tracking-wide  transition"
                             >
-                                <FaAmazon />
-                                Amazon India
-                            </a> */}
+                                {/* <FaAmazon /> */}
+                                <img src="amazon.png" alt="amazon icon"
+                                    width={100}
+                                    height={10} />
+
+                            </a>
 
                         </div>
 
