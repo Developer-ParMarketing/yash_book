@@ -65,7 +65,7 @@ const Banner = () => {
                         <div className="w-12 h-px bg-black transition-all duration-300 group-hover:w-6"></div>
 
                         <a
-                            href="https://example.com"
+                            href="https://amzn.in/d/04U6MRNH"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`
