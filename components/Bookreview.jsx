@@ -40,7 +40,7 @@ const Bookreview = () => {
                         self-betrayal.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-30 items-start">
 
                     {/* LEFT CONTENT */}
                     <div className="space-y-8 order-2 lg:order-1">
@@ -101,9 +101,9 @@ const Bookreview = () => {
                     <div className="flex justify-center lg:justify-start order-1 lg:order-2">
                         <div className="w-full max-w-md lg:max-w-none">
                             <img
-                                src="https://img.freepik.com/premium-vector/creative-vector-modern-book-cover-design-company-brochure-annual-report-design-template_812472-1874.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                                src="cover.jpg"
                                 alt="Book Cover"
-                                className="w-full h-auto object-cover shadow-2xl rounded-sm"
+                                className="w-[500] h-auto object-cover shadow-2xl rounded-sm"
                             />
                         </div>
                     </div>
