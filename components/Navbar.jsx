@@ -42,7 +42,7 @@ const Navbar = () => {
     ];
 
     return (
-        <header className="w-full bg-[#e8e6d8]  border-[#d8d5c8] relative overflow-x-clip text-black">
+        <header className="w-full bg-[#f9e9d1]  border-[#d8d5c8] relative overflow-x-clip text-black">
 
             {/* Top Bar */}
             <div className="w-full min-w-0 flex items-center justify-between px-5 md:px-10 xl:px-16 2xl:px-12 h-32">

@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 
 const Buybook = () => {
     return (
-        <section id="Buy_the_Book" className="w-full bg-[#f3f1ea] py-16 px-6 md:px-14 lg:px-20">
+        <section id="Buy_the_Book" className="w-full bg-[#f9e9d1] py-16 px-6 md:px-14 lg:px-20">
 
             <div className="max-w-7xl xl:max-w-[1400px] mx-auto">
 
@@ -55,7 +55,7 @@ const Buybook = () => {
                             className={`
                 ${cinzel.className}
                 text-3xl md:text-4xl lg:text-5xl
-                tracking-wide
+                tracking-wide text-[#6d0101]
               `}
                         >
                             Choose to Keep Going, Differently.

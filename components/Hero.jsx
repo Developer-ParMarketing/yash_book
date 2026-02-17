@@ -13,8 +13,8 @@ const cormorant = Cormorant_Garamond({
 
 const Hero = () => {
     return (
-        // <section id="home" className="relative w-full h-[80vh] md:h-h-[109vh] xl:h-h-[99vh] lg:h-[109vh] bg-[#e8e6d8] overflow-hidden flex ">
-        <section id="home" className="relative w-full h-auto pb-50 bg-[#e8e6d8] overflow-hidden flex ">
+        // <section id="home" className="relative w-full h-[80vh] md:h-h-[109vh] xl:h-h-[99vh] lg:h-[109vh] bg-[#f9e9d1] overflow-hidden flex ">
+        <section id="home" className="relative w-full h-auto pb-50 bg-[#f9e9d1] overflow-hidden flex ">
             <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 xl:px-16  mt-[150] md:mt-20 xl:mt-20 lg:mt-20">
 
 

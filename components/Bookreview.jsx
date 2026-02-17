@@ -24,7 +24,7 @@ const Bookreview = () => {
             ${cinzel.className}
             text-3xl sm:text-4xl lg:text-5xl
             tracking-wide
-            mb-6
+            mb-6 text-[#6d0101]
           `}
                     >
                         The Book
@@ -103,7 +103,7 @@ const Bookreview = () => {
                             <img
                                 src="cover.jpg"
                                 alt="Book Cover"
-                                className="w-[400] h-auto object-cover shadow-2xl rounded-sm"
+                                className="w-[450] h-auto object-cover shadow-2xl rounded-sm"
                             />
                         </div>
                     </div>
@@ -121,7 +121,7 @@ const Bookreview = () => {
                 ${cinzel.className}
                 text-3xl md:text-4xl lg:text-5xl
                 tracking-wide
-                mb-4 relative
+                mb-4 relative text-[#6d0101]
               `}
                         >
                             The Book

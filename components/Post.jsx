@@ -31,7 +31,7 @@ const Post = () => {
                         className={`
               ${playfair.className}
               text-4xl sm:text-5xl md:text-5xl lg:text-6xl
-              font-normal tracking-wide text-gray-900
+              font-normal tracking-wide text-[#6d0101]
               relative inline-block  text-center
             `}
                     >
@@ -59,7 +59,7 @@ const Post = () => {
                         className={`
               ${playfair.className}
               text-4xl sm:text-5xl md:text-5xl lg:text-6xl
-              font-normal tracking-wide text-gray-900
+              font-normal tracking-wide text-[#6d0101]
               relative inline-block 
             `}
                     >
