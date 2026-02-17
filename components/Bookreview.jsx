@@ -113,7 +113,7 @@ const Bookreview = () => {
 
 
             {/*Dummy Section  */}
-            <div className="max-w-7xl mx-auto py-10">
+            {/* <div className="max-w-7xl mx-auto py-10">
                 <div className="w-full  text-center ">
                     <div className="py-10">
                         <h2
@@ -186,7 +186,7 @@ const Bookreview = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </section>
     );
 };
