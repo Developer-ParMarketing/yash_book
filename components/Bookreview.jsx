@@ -103,7 +103,7 @@ const Bookreview = () => {
                             <img
                                 src="cover.jpg"
                                 alt="Book Cover"
-                                className="w-[500] h-auto object-cover shadow-2xl rounded-sm"
+                                className="w-[400] h-auto object-cover shadow-2xl rounded-sm"
                             />
                         </div>
                     </div>
