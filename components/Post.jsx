@@ -22,8 +22,8 @@ const cormorant = Cormorant_Garamond({
 
 const Post = () => {
     return (
-        <div id="Philosophy" className="min-h-screen bg-[#f9f8f4] py-16 sm:py-20 md:py-24 lg:py-28 px-5 sm:px-8 md:px-12 lg:px-16">
-            <div className="max-w-7xl   mx-auto space-y-20 sm:space-y-28 md:space-y-36">
+        <div id="Philosophy" className=" bg-[#f9f8f4] py-16  px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="max-w-7xl   mx-auto space-y-8  ">
 
                 {/* Philosophy Section */}
                 <section className=" text-center  md:text-left lg:text-left xl:text-left ">
@@ -32,7 +32,7 @@ const Post = () => {
               ${playfair.className}
               text-4xl sm:text-5xl md:text-5xl lg:text-6xl
               font-normal tracking-wide text-gray-900
-              relative inline-block pb-4 sm:pb-5 text-center
+              relative inline-block  text-center
             `}
                     >
                         Philosophy
@@ -45,7 +45,7 @@ const Post = () => {
             
               text-base sm:text-lg md:text-xl
               leading-relaxed sm:leading-loose
-              text-gray-700 font-light tracking-wide mt-6
+              text-gray-700 font-light tracking-wide mt-6 text-left
              
             `}
                     >
@@ -60,7 +60,7 @@ const Post = () => {
               ${playfair.className}
               text-4xl sm:text-5xl md:text-5xl lg:text-6xl
               font-normal tracking-wide text-gray-900
-              relative inline-block pb-4 sm:pb-5
+              relative inline-block 
             `}
                     >
                         Background
@@ -73,7 +73,7 @@ const Post = () => {
               mt-6 sm:mt-8 md:mt-10
               text-xl sm:text-2xl md:text-2.5xl
               font-normal italic text-gray-700
-              tracking-wide relative
+              tracking-wide relative text-left
             `}
                     >
                         From Business Systems to Human Decisions
@@ -83,10 +83,10 @@ const Post = () => {
                     <p
                         className={`
               ${cormorant.className}
-              mt-3 sm:mt-5 md:mt-7
+              
               text-base sm:text-lg md:text-xl
               leading-relaxed sm:leading-loose
-              text-gray-700 font-light tracking-wide
+              text-gray-700 font-light tracking-wide text-left
            
             `}
                     >
@@ -96,7 +96,7 @@ const Post = () => {
                     </p>
                     <div className="pt-10 flex justify-center md:justify-start">
                         <a
-                            href="https://www.linkedin.com/in/YOUR-PROFILE"
+                            href="https://www.linkedin.com/in/yashasvi-prasad/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-700 hover:text-blue-600 transition duration-300"
