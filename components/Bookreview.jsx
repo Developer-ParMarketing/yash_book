@@ -24,7 +24,7 @@ const Bookreview = () => {
             ${cinzel.className}
             text-3xl sm:text-4xl lg:text-5xl
             tracking-wide
-            mb-6 text-[#6d0101]
+            mb-6 
           `}
                     >
                         The Book
@@ -121,7 +121,7 @@ const Bookreview = () => {
                 ${cinzel.className}
                 text-3xl md:text-4xl lg:text-5xl
                 tracking-wide
-                mb-4 relative text-[#6d0101]
+                mb-4 relative 
               `}
                         >
                             The Book

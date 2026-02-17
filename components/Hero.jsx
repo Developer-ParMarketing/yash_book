@@ -97,7 +97,7 @@ const Hero = () => {
       sm:absolute
       sm:left-[-3vw] md:left-[10] lg:left-[10] xl:left-[-80]
       text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
-      leading-none font-bold
+      leading-none font-bold text-[#6d0101]
     "
                         >
                             yashasvi
@@ -112,7 +112,7 @@ const Hero = () => {
       sm:absolute
       sm:right-[-3vw] md:left-[550] lg:left-[700] xl:left-[835]
       text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
-      leading-none font-bold
+      leading-none font-bold text-[#6d0101]
     "
                         >
                             prasad
