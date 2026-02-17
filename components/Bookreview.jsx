@@ -33,7 +33,8 @@ const Bookreview = () => {
                     <p
                         className={`${cormorant.className} text-base sm:text-lg leading-relaxed text-gray-800`}
                     >
-                        <strong>Core Premise:</strong><br />
+                        <span className="text-xl sm:text-2xl"> <strong>Core Premise:</strong> </span>
+                        <br />
                         You already know something isn't working. The harder question is why you're still there.
                         Quitting is not an emotional reaction—it is a rational response to changing conditions.
                         This book provides the language, structure, and clarity to decide without guilt or

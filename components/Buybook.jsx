@@ -47,7 +47,7 @@ const Buybook = () => {
                     {/* RIGHT CONTENT */}
                     <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
 
-                        <p className={`${cormorant.className} italic tracking-wide text-base md:text-lg leading-relaxed text-gray-700`}>
+                        <p className={`${cormorant.className} italic tracking-wide text-xl md:text-2xl leading-relaxed text-gray-700`}>
                             Buy the Book
                         </p>
 

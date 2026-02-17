@@ -29,10 +29,11 @@ const Post = () => {
                 <section className=" text-center  md:text-left lg:text-left xl:text-left ">
                     <h1
                         className={`
-              ${playfair.className}
-              text-4xl sm:text-5xl md:text-5xl lg:text-6xl
-              font-normal tracking-wide text-gray-900
-              relative inline-block  text-center
+              ${cinzel.className}
+            text-3xl sm:text-4xl lg:text-5xl
+            tracking-wide
+              font-normal  text-gray-900
+              relative inline-block  text-center uppercase
             `}
                     >
                         Philosophy
@@ -57,10 +58,11 @@ const Post = () => {
                 <section className=" text-center  md:text-left lg:text-left xl:text-left ">
                     <h1
                         className={`
-              ${playfair.className}
-              text-4xl sm:text-5xl md:text-5xl lg:text-6xl
-              font-normal tracking-wide text-gray-900
-              relative inline-block 
+              ${cinzel.className}
+            text-3xl sm:text-4xl lg:text-5xl
+            tracking-wide
+              font-normal  text-gray-900
+              relative inline-block  text-center uppercase
             `}
                     >
                         Background

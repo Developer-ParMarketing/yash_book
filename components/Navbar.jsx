@@ -4,6 +4,13 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { Cormorant_Garamond } from "next/font/google";
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["400", "500"],
+    style: ["normal", "italic"],
+});
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,8 +55,8 @@ const Navbar = () => {
             <div className="w-full min-w-0 flex items-center justify-between px-5 md:px-10 xl:px-16 2xl:px-12 h-32">
 
                 {/* Logo */}
-                <Link href="">
-                    <Image
+                <Link href="" className="flex-shrink-0">
+                    {/* <Image
                         src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/10/logo-01-light.png"
                         alt="logo"
                         width={220}
@@ -57,7 +64,21 @@ const Navbar = () => {
                         priority
                         className="invert"
 
-                    />
+                    /> */}
+
+                    <p className={`
+                        ${cormorant.className} 
+                        text-2xl sm:text-2xl md:text-3xl lg:text-4xl 
+                        leading-tight 
+                        text-black 
+                        uppercase 
+                        font-semibold 
+                        m-0
+                        whitespace-nowrap
+                    `}>
+                        yashasvi prasad
+                    </p>
+
                 </Link>
 
                 {/* Desktop Menu */}

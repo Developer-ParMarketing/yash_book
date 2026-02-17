@@ -16,7 +16,7 @@ const Footer = () => {
         <footer className="w-full bg-black text-white overflow-x-hidden px-5 md:px-10 xl:px-16 2xl:px-12">
 
             <div className="w-full px-7.5 pt-38.75  flex flex-col items-center text-center">
-
+                {/* 
                 <Image
                     src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/10/logo-01-light.png"
                     alt="logo"
@@ -24,7 +24,19 @@ const Footer = () => {
                     height={60}
                     priority
                     className="mb-7.5"
-                />
+                /> */}
+                <p className={`
+  ${cormorant.className} 
+  max-w-xl
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+  leading-relaxed
+  text-white
+  font-medium
+  uppercase
+  mb-8
+`}>
+                    yashasvi prasad
+                </p>
 
                 <p
                     className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
@@ -41,10 +53,10 @@ const Footer = () => {
                         <FaFacebook />   Fb.
                     </a>
                     <a target="_blank" href="https://www.instagram.com/whenstayingstopsmakingsense/" className="hover:opacity-70 transition">
-                        <FaInstagram />   In.
+                        <FaInstagram />   Ig.
                     </a>
                     <a target="_blank" href="https://www.linkedin.com/company/when-staying-stops-making-sense/?viewAsMember=true" className="hover:opacity-70 transition">
-                        <FaLinkedin />  Ld.
+                        <FaLinkedin />  Li.
                     </a>
                 </div>
                 <div className="border-b border-2 bg-white w-60 "></div>
@@ -58,7 +70,7 @@ const Footer = () => {
                 >
 
                     <a target="_blank" href="https://www.linkedin.com/in/yashasvi-prasad/" className="hover:opacity-70 transition">
-                        <FaLinkedin />  Ld.
+                        <FaLinkedin />  Li.
                     </a>
                 </div>
 
