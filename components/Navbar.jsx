@@ -160,40 +160,20 @@ const Navbar = () => {
             {mobileOpen && (
                 <div className="lg:hidden border-t border-[#d8d5c8] bg-white">
                     <nav className="flex flex-col p-6 uppercase text-sm">
-
                         {menuItems.map((item) => (
-                            <div key={item.name} className="py-3 border-b">
-
-                                {/* Parent */}
-                                <button
-                                    onClick={() => toggleMenu(item.name)}
-                                    className="flex justify-between w-full font-semibold"
-                                >
-                                    {/* <Link href="#">{item.name}</Link> */}
-                                    <Link href={`#${item.pointer}`}>
-                                        {item.name}
-                                        {console.log(item.name)}
-                                    </Link>
-
-                                    {/* <span>{openMenu === item.name ? "-" : "+"}</span> */}
-                                </button>
-
-                                {/* Dropdown */}
-                                {/* {openMenu === item.name && (
-                                    <ul className="pl-4 mt-2 space-y-2 normal-case text-gray-600">
-                                        {item.dropdown.map((sub) => (
-                                            <li key={sub}>
-                                                <Link href="#">{sub}</Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )} */}
-                            </div>
+                            <Link
+                                key={item.name}
+                                href={`#${item.pointer}`}
+                                onClick={() => setMobileOpen(false)}   // 👈 closes menu after click
+                                className="py-3 border-b font-semibold"
+                            >
+                                {item.name}
+                            </Link>
                         ))}
-
                     </nav>
                 </div>
             )}
+
         </header>
     );
 };
