@@ -16,7 +16,7 @@ const cormorant = Cormorant_Garamond({
 const Bookreview = () => {
     return (
         <section id="Key_Ideas" className="w-full bg-[#f7f5ef] py-16 px-6 md:px-14 lg:px-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            <div className="max-w-7xl mx-auto  ">
                 {/* TITLE & CORE PREMISE */}
                 <div className="pb-12 text-center">
                     <h2
