@@ -27,7 +27,7 @@ const Hero = () => {
 
 
                         <Image
-                            src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/09/main-home-rev-1.jpg"
+                            src="/YP-Profile.png"
                             alt="hero"
                             width={900}
                             height={600}
