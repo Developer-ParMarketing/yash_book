@@ -1,4 +1,5 @@
 import Banner from '@/components/Banner'
+import Blogs from '@/components/Blogs'
 import Bookreview from '@/components/Bookreview'
 import Buybook from '@/components/Buybook'
 import Hero from '@/components/Hero'
@@ -16,6 +17,7 @@ const page = () => {
       <Banner />
       <Bookreview />
       <Buybook />
+      <Blogs />
       {/* <Subscribe />
       <Imggallery /> */}
 

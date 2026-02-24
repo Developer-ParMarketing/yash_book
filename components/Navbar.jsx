@@ -27,6 +27,11 @@ const Navbar = () => {
             pointer: "home",
         },
         {
+            name: "Blogs",
+            // dropdown: ["About", "Contact", "Pricing"],
+            pointer: 'blogs'
+        },
+        {
             name: "Philosophy",
             // dropdown: ["About", "Contact", "Pricing"],
             pointer: 'Philosophy'
@@ -93,7 +98,7 @@ const Navbar = () => {
                             )}
 
                             {/* Parent */}
-                            <Link href={`#${item.pointer}`} className="py-6 font-semibold tracking-[5px] leading-loose">
+                            <Link href={`/#${item.pointer}`} className="py-6 font-semibold tracking-[5px] leading-loose">
                                 {item.name}
                             </Link>
 
@@ -163,8 +168,8 @@ const Navbar = () => {
                         {menuItems.map((item) => (
                             <Link
                                 key={item.name}
-                                href={`#${item.pointer}`}
-                                onClick={() => setMobileOpen(false)}   // 👈 closes menu after click
+                                href={`/#${item.pointer}`}
+                                onClick={() => setMobileOpen(false)}
                                 className="py-3 border-b font-semibold"
                             >
                                 {item.name}

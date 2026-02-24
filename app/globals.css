@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 30px !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
