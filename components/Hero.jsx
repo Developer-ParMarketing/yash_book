@@ -32,7 +32,8 @@ const Hero = () => {
                             width={900}
                             height={600}
                             priority
-                            className="relative z-20 w-65 sm:w-90 md:w-125 lg:w-135 xl:w-150 h-auto object-cover"
+                            className="relative z-20 w-65 sm:w-90 md:w-125 lg:w-135 xl:w-150 h-auto object-cover "
+
                         />
                     </motion.div>
 
@@ -45,11 +46,11 @@ const Hero = () => {
              top-[75%] sm:top-[70%] md:top-[65%] lg:top-[65%] xl:top-[65%]"
                     >
                         <Image
-                            src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/09/home-1-rev-3.png"
+                            src="/herobook.png"
                             alt="book"
                             width={160}
                             height={160}
-                            className="w-20 sm:w-24 md:w-30 lg:w-70"
+                            className="w-25 sm:w-24 md:w-30 lg:w-70"
                         />
                     </motion.div>
 

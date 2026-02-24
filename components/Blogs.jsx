@@ -29,7 +29,7 @@ const Blogs = () => {
                         Your Shopping expo:
                     </p>
                     <h2 className={`${cinzel.className} text-4xl md:text-5xl lg:text-6xl mt-4`}>
-                        New Literature Posts
+                        New Blogs
                     </h2>
                     <div className="w-16 h-px bg-gray-400 mx-auto mt-6"></div>
                 </div>

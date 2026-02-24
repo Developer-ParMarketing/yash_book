@@ -61,17 +61,18 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Link href="" className="flex-shrink-0">
-                    {/* <Image
-                        src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/10/logo-01-light.png"
+                    <Image
+                        src="/logo.png"
                         alt="logo"
-                        width={220}
+                        width={260}
                         height={60}
                         priority
-                        className="invert"
+                    // className="invert"
 
-                    /> */}
 
-                    <p className={`
+                    />
+
+                    {/* <p className={`
                         ${cormorant.className} 
                         text-2xl sm:text-2xl md:text-3xl lg:text-4xl 
                         leading-tight 
@@ -82,7 +83,7 @@ const Navbar = () => {
                         whitespace-nowrap
                     `}>
                         yashasvi prasad
-                    </p>
+                    </p> */}
 
                 </Link>
 
