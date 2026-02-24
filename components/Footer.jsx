@@ -25,7 +25,7 @@ const Footer = () => {
                     priority
                     className="mb-7.5"
                 /> */}
-                <p className={`
+                {/* <p className={`
   ${cormorant.className} 
   max-w-xl
   text-2xl sm:text-3xl md:text-4xl lg:text-5xl
@@ -33,10 +33,20 @@ const Footer = () => {
   text-white
   font-medium
   uppercase
-  mb-8
+ 
 `}>
                     yashasvi prasad
-                </p>
+                </p> */}
+                <Image
+                    src="/logo.png"
+                    alt="logo"
+                    width={260}
+                    height={60}
+                    priority
+                    className="invert  mb-8"
+
+
+                />
 
                 <p
                     className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
