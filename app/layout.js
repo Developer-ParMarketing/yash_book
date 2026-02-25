@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,14 +23,15 @@ const openSans = Open_Sans({
 export const metadata = {
   title: "Yashasvi Prasad | Author of When Staying Stops Making Sense",
   description: "Explore the work of Yashasvi Prasad on decision-making, the psychology of endurance, and knowing when to stay or leave. Discover his book, \"When Staying Stops Making Sense.\"",
+  other: {
+    "google-site-verification": "vRQXCUTsbJz1bOwz9IvYuyoE0url7q0yz9GJogFC7m4",
+  },
+
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="google-site-verification" content="vRQXCUTsbJz1bOwz9IvYuyoE0url7q0yz9GJogFC7m4" />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
