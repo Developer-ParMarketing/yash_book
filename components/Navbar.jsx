@@ -26,11 +26,11 @@ const Navbar = () => {
             // dropdown: ["Main Home", "Publisher Home", "Alternating Posts"],
             pointer: "home",
         },
-        {
-            name: "Blogs",
-            // dropdown: ["About", "Contact", "Pricing"],
-            pointer: 'blogs'
-        },
+        // {
+        //     name: "Blogs",
+        //     // dropdown: ["About", "Contact", "Pricing"],
+        //     pointer: 'blogs'
+        // },
         {
             name: "Philosophy",
             // dropdown: ["About", "Contact", "Pricing"],
