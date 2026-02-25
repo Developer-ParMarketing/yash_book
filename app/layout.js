@@ -21,8 +21,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "Yashasvi Prasad",
-  description: "From Business Systems to Human Decisions",
+  title: "Yashasvi Prasad | Author of When Staying Stops Making Sense",
+  description: "Explore the work of Yashasvi Prasad on decision-making, the psychology of endurance, and knowing when to stay or leave. Discover his book, \"When Staying Stops Making Sense.\"",
 };
 
 export default function RootLayout({ children }) {
