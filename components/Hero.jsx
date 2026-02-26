@@ -80,7 +80,7 @@ const Hero = () => {
 
                     {/* BIG NAME TEXT */}
 
-                    <h1
+                    {/* <h1
                         className={`
     absolute top-1/2 left-0 w-full -translate-y-1/2
     uppercase text-black pointer-events-none z-30
@@ -115,6 +115,68 @@ const Hero = () => {
       text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
       leading-none font-bold text-[#6d0101]
     "
+                        >
+                            prasad
+                        </motion.span>
+                    </h1> */}
+
+                    <h1
+                        className={`
+    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+    w-full max-w-7xl
+    uppercase pointer-events-none z-30
+
+    flex flex-col items-center gap-75   /* Mobile layout */
+    sm:block                           /* Desktop back to normal */
+
+    ${cormorant.className}
+  `}
+
+                    >
+                        {/* LEFT NAME */}
+                        <motion.span
+                            initial={{ opacity: 0, x: -120, rotate: -5 }}
+                            animate={{ opacity: 1, x: 0, rotate: 0 }}
+                            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+                            className="
+    relative
+
+    /* Desktop positioning only */
+    sm:absolute
+    sm:top-1/2 sm:-translate-y-1/2
+    sm:left-1/2 sm:-translate-x-[125%]
+    md:-translate-x-[265%] 
+    lg:-translate-x-[205%] 
+    xl:-translate-x-[170%]
+
+    text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
+    leading-none font-bold text-[#6d0101]
+    whitespace-nowrap
+  "
+                        >
+                            yashasvi
+                        </motion.span>
+
+                        {/* RIGHT NAME */}
+                        <motion.span
+                            initial={{ opacity: 0, x: 120, rotate: 5 }}
+                            animate={{ opacity: 1, x: 0, rotate: 0 }}
+                            transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+                            className="
+    relative
+
+    /* Desktop positioning only */
+    sm:absolute
+    sm:top-1/2 sm:-translate-y-1/2
+    sm:left-1/2 sm:translate-x-[40%]
+    md:translate-x-[205%]  
+    lg:translate-x-[125%] 
+    xl:translate-x-[85%]
+
+    text-[32px] sm:text-[80px] md:text-[30px] lg:text-[50px] xl:text-[80px]
+    leading-none font-bold text-[#6d0101]
+    whitespace-nowrap
+  "
                         >
                             prasad
                         </motion.span>
