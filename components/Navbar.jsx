@@ -57,7 +57,7 @@ const Navbar = () => {
         <header className="w-full bg-[#f9e9d1]  border-[#d8d5c8] relative overflow-x-clip text-black">
 
             {/* Top Bar */}
-            <div className="w-full min-w-0 flex items-center justify-between px-5 md:px-10 xl:px-16 2xl:px-12 h-32">
+            <div className="w-full min-w-0 flex items-center justify-between px-5 md:px-10 xl:px-16 2xl:px-12 h-20 sm:h-24 lg:h-28 xl:h-32">
 
                 {/* Logo */}
                 <Link href="" className="flex-shrink-0">
@@ -67,7 +67,7 @@ const Navbar = () => {
                         width={260}
                         height={60}
                         priority
-                    // className="invert"
+                        className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 h-auto"
 
 
                     />
@@ -88,7 +88,14 @@ const Navbar = () => {
                 </Link>
 
                 {/* Desktop Menu */}
-                <nav className="hidden lg:flex items-center gap-8 uppercase text-[16px] tracking-[1.2px] font-menu min-w-0">
+                <nav className="
+  hidden lg:flex items-center
+  gap-4 xl:gap-6 2xl:gap-8
+  uppercase
+  text-[13px] xl:text-[14px] 2xl:text-[16px]
+  tracking-[2px] xl:tracking-[3px]
+  min-w-0
+">
 
                     {menuItems.map((item, index) => (
                         <div key={item.name} className="relative group flex items-center">
@@ -99,7 +106,12 @@ const Navbar = () => {
                             )}
 
                             {/* Parent */}
-                            <Link href={`/#${item.pointer}`} className="py-6 font-semibold tracking-[5px] leading-loose">
+                            <Link href={`/#${item.pointer}`} className="
+  py-4 xl:py-6
+  font-semibold
+  tracking-[2px] xl:tracking-[4px]
+  leading-normal
+">
                                 {item.name}
                             </Link>
 
