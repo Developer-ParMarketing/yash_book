@@ -7,9 +7,21 @@ const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
+const allowedOrigins = [
+    "http://localhost:3000",
+    "http://yashasviprasad.com",
+    "https://yashasviprasad.com"
+];
+
 app.use(
     cors({
-        origin: ["http://localhost:3000", "https://yashasviprasad.com"],
+        origin: function (origin, callback) {
+            if (!origin) return callback(null, true); // allow Postman or server-to-server requests
+            if (allowedOrigins.indexOf(origin) === -1) {
+                return callback(new Error("Not allowed by CORS"), false);
+            }
+            return callback(null, true);
+        },
         credentials: true,
     })
 );
