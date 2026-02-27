@@ -7,10 +7,12 @@ const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 const allowedOrigins = [
-    "http://localhost:3000",
-    "http://yashasviprasad.com",
-    "https://yashasviprasad.com"
+    "http://localhost:3000",           // local dev
+    "http://yashasviprasad.com",      // insecure live frontend
+    "https://yashasviprasad.com"      // secure live frontend
 ];
 
 app.use(

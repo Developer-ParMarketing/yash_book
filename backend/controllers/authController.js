@@ -47,12 +47,12 @@ exports.login = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // true on HTTPS live
-            sameSite: "none", // needed for cross-domain cookies
-            domain: ".yashasviprasad.com", // your frontend domain
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+            secure: true,                      // MUST be true on production
+            sameSite: "none",                  // MUST be none for cross-subdomain
+            domain: ".yashasviprasad.com",     // VERY IMPORTANT
+            path: "/",                         // recommended
+            maxAge: 7 * 24 * 60 * 60 * 1000,
         });
-
         res.json({
             message: "Login successful",
             user: {
