@@ -1,21 +1,268 @@
-import { blogs } from "../data";
+// "use client";
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "next/navigation";
+// import Image from "next/image";
+// import Head from "next/head";
+// import Link from "next/link";
+// import { api } from "@/app/variables";
+
+// export default function Page() {
+//     const { slug } = useParams();
+//     const [blog, setBlog] = useState(null);
+//     const [related, setRelated] = useState([]);
+//     const [loading, setLoading] = useState(true);
+
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             try {
+//                 // Fetch main blog
+//                 const res = await fetch(`${api}/blogs/post/${encodeURIComponent(slug)}`);
+//                 const data = await res.json();
+//                 setBlog(data.blog || null);
+
+//                 // Fetch related blogs
+//                 const relatedRes = await fetch(`${api}/blogs/related/${encodeURIComponent(slug)}`);
+//                 const relatedData = await relatedRes.json();
+//                 setRelated(relatedData.relatedBlogs || []);
+
+//                 setLoading(false);
+//             } catch (err) {
+//                 console.error(err);
+//                 setLoading(false);
+//             }
+//         };
+
+//         fetchData();
+//     }, [slug]);
+
+//     if (loading) return <div className="text-center py-10">Loading...</div>;
+//     if (!blog) return <div className="text-center py-10">Blog not found</div>;
+
+//     return (
+//         <>
+//             {/* SEO */}
+//             <Head>
+//                 <title>{blog.metaTitle || blog.title}</title>
+//                 <meta name="description" content={blog.metaDescription || blog.excerpt || ""} />
+//                 <meta property="og:title" content={blog.ogTitle || blog.title} />
+//                 <meta property="og:description" content={blog.ogDescription || blog.excerpt || ""} />
+//                 {blog.ogImage && <meta property="og:image" content={blog.ogImage} />}
+//             </Head>
+
+//             <div className="max-w-7xl mx-auto py-12 px-6 grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+
+
+//                 {/* ================= MAIN BLOG ================= */}
+//                 <main className="lg:col-span-3">
+//                     <h1 className="text-4xl font-bold mb-6">{blog.title}</h1>
+
+//                     {blog.featuredImage && (
+//                         <div className="relative w-full h-[400px] mb-8 overflow-hidden">
+//                             <Image
+//                                 src={blog.featuredImage}
+//                                 fill
+//                                 alt={blog.title}
+//                                 className="object-cover"
+//                             />
+//                         </div>
+//                     )}
+
+//                     <p className="text-gray-500 mb-4">
+//                         {new Date(blog.datePublished).toLocaleDateString()} | {blog.categories?.join(", ")}
+//                     </p>
+
+//                     <div
+//                         className="prose max-w-none"
+//                         dangerouslySetInnerHTML={{ __html: blog.content }}
+//                     />
+//                 </main>
+
+//                 {/* ================= SIDEBAR ================= */}
+//                 <aside className="lg:col-span-1">
+//                     <h3 className="text-xl font-semibold mb-6 border-b pb-3">
+//                         Related Posts
+//                     </h3>
+
+//                     <div className="space-y-6">
+//                         {related.map((item) => (
+//                             <Link key={item._id} href={`/blog/${item.slug}`}>
+//                                 <div className="flex gap-4 group cursor-pointer my-5">
+//                                     <div className="w-24 h-24 relative overflow-hidden flex-shrink-0">
+//                                         <Image
+//                                             src={item.featuredImage || "/book1.png"}
+//                                             fill
+//                                             alt={item.title}
+//                                             className="object-cover group-hover:scale-105 transition duration-300"
+//                                         />
+//                                     </div>
+//                                     <div className="flex-1">
+//                                         <h4 className="text-sm font-medium leading-snug group-hover:underline">
+//                                             {item.title}
+//                                         </h4>
+//                                         <p className="text-xs text-gray-500 mt-1">
+//                                             {new Date(item.createdAt).toLocaleDateString()}
+//                                         </p>
+//                                     </div>
+//                                 </div>
+//                             </Link>
+//                         ))}
+
+
+
+
+//                     </div>
+//                 </aside>
+//             </div>
+//         </>
+//     );
+// }
+
+import Image from "next/image";
+import Link from "next/link";
+import { api } from "@/app/variables";
+
+export async function generateMetadata({ params }) {
+    const { slug } = await params; // ✅ await params
+
+    try {
+        const res = await fetch(`${api}/blogs/post/${encodeURIComponent(slug)}`, {
+            cache: "no-store",
+        });
+        const data = await res.json();
+        const blog = data.blog;
+
+        if (!blog) return { title: "Blog Not Found" };
+
+        return {
+            title: blog.title,
+            description: blog.metaDescription || blog.excerpt || "",
+            keywords: blog.tags?.join(", ") || "",
+            openGraph: {
+                title: blog.title,
+                description: blog.metaDescription || blog.excerpt || "",
+                url: `https://yourdomain.com/blog/${slug}`,
+                type: "article",
+                publishedTime: blog.datePublished,
+                images: blog.ogImage ? [{ url: blog.ogImage, width: 1200, height: 630, alt: blog.title }] : [],
+            },
+            twitter: {
+                card: "summary_large_image",
+                title: blog.title,
+                description: blog.metaDescription || blog.excerpt || "",
+                images: blog.ogImage ? [blog.ogImage] : [],
+            },
+            alternates: {
+                canonical: `https://yourdomain.com/blog/${slug}`,
+            },
+        };
+    } catch (err) {
+        return { title: "Blog" };
+    }
+}
+
+async function getBlogData(slug) {
+    try {
+        const [blogRes, relatedRes] = await Promise.all([
+            fetch(`${api}/blogs/post/${encodeURIComponent(slug)}`, { cache: "no-store" }),
+            fetch(`${api}/blogs/related/${encodeURIComponent(slug)}`, { cache: "no-store" }),
+        ]);
+
+        const blogData = await blogRes.json();
+        const relatedData = await relatedRes.json();
+
+        return {
+            blog: blogData.blog || null,
+            related: relatedData.relatedBlogs || [],
+        };
+    } catch (err) {
+        console.error("Fetch error:", err);
+        return { blog: null, related: [] };
+    }
+}
 
 export default async function Page({ params }) {
-    const { slug } = await params;
+    const { slug } = await params; // ✅ await params
+    const { blog, related } = await getBlogData(slug);
 
-    const blog = blogs.find((item) => item.slug === slug);
-
-    if (!blog) {
-        return <div>Blog not found</div>;
-    }
+    if (!blog) return <div>Blog not found</div>;
 
     return (
-        <div>
-            <h1>{blog.title}</h1>
-            <img src={blog.img} width="300" />
-            <p>{blog.date}</p>
-            <p>Category: {blog.category}</p>
-            <p>{blog.comments}</p>
+        <div className="max-w-7xl mx-auto py-12 px-6 grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+            {/* ================= MAIN BLOG ================= */}
+            <main className="lg:col-span-3">
+
+                {/* Title */}
+                <h1 className="text-4xl font-bold mb-6 leading-tight">
+                    {blog.title}
+                </h1>
+
+                {/* Featured Image */}
+                {blog.featuredImage && (
+                    <div className="relative w-full h-[400px] mb-8 overflow-hidden rounded-xl shadow-md">
+                        <Image
+                            src={blog.featuredImage}
+                            alt={blog.title}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                )}
+
+                {/* Meta Info */}
+                <p className="text-gray-500 mb-6 text-sm">
+                    {new Date(blog.datePublished).toLocaleDateString()}{" "}
+                    {blog.categories?.length > 0 && (
+                        <> | {blog.categories.join(", ")}</>
+                    )}
+                </p>
+
+                {/* Content */}
+                <div
+                    className="prose max-w-none prose-lg"
+                    dangerouslySetInnerHTML={{ __html: blog.content }}
+                />
+            </main>
+
+
+            {/* ================= SIDEBAR ================= */}
+            <aside className="lg:col-span-1">
+
+                <h3 className="text-xl font-semibold mb-6 border-b pb-3">
+                    Related Posts
+                </h3>
+
+                <div className="space-y-6">
+                    {related.map((item) => (
+                        <Link key={item._id} href={`/blog/${item.slug}`}>
+                            <div className="flex gap-4 group cursor-pointer">
+
+                                {/* Small Thumbnail */}
+                                <div className="w-20 h-20 relative overflow-hidden rounded-lg flex-shrink-0">
+                                    <Image
+                                        src={item.featuredImage || "/book1.png"}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition duration-300"
+                                    />
+                                </div>
+
+                                {/* Text */}
+                                <div className="flex-1">
+                                    <h4 className="text-sm font-medium leading-snug group-hover:underline">
+                                        {item.title}
+                                    </h4>
+                                    <p className="text-xs text-gray-500 mt-1">
+                                        {new Date(item.createdAt).toLocaleDateString()}
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </aside>
         </div>
     );
 }

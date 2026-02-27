@@ -1,5 +1,5 @@
 const Blog = require("../model/BlogSchema");
-
+const slugify = require("slugify");
 
 // PUBLIC CONTROLLERS
 
@@ -20,10 +20,8 @@ exports.getPublishedBlogs = async (req, res) => {
 // Get blog by slug
 exports.getBlogBySlug = async (req, res) => {
     try {
-        const blog = await Blog.findOne({
-            slug: req.params.slug,
-            published: true,
-        });
+        const slug = decodeURIComponent(req.params.slug); // decode %20 if present
+        const blog = await Blog.findOne({ slug, published: true });
 
         if (!blog) {
             return res.status(404).json({ message: "Blog not found" });
@@ -98,9 +96,17 @@ exports.getBlogById = async (req, res) => {
 
 
 // Create blog
+
+
 exports.createBlog = async (req, res) => {
     try {
-        const blog = await Blog.create(req.body);
+        // Generate URL-friendly slug from title
+        const slug = slugify(req.body.title, { lower: true, strict: true });
+
+        const blog = await Blog.create({
+            ...req.body,
+            slug, // use the slug here
+        });
 
         res.status(201).json({ blog });
     } catch (error) {
@@ -131,6 +137,26 @@ exports.deleteBlog = async (req, res) => {
         await Blog.findByIdAndDelete(req.params.id);
 
         res.json({ message: "Blog deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+
+// Preview blog (admin only)
+exports.previewBlogBySlug = async (req, res) => {
+    try {
+        const slug = decodeURIComponent(req.params.slug);
+
+        const blog = await Blog.findOne({ slug }); // NO published filter
+
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        res.json({ blog });
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

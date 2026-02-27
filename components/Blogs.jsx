@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
@@ -9,8 +9,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
-
-import { blogs } from "../app/blog/data";
+import { api } from "@/app/variables";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"] });
@@ -18,6 +17,28 @@ const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"
 const Blogs = () => {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // Fetch blogs from API
+    const fetchBlogs = async () => {
+        try {
+            const res = await fetch(`${api}/blogs`);
+            const data = await res.json();
+            // New blogs first
+            setBlogs(data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+            setLoading(false);
+        } catch (error) {
+            console.error(error);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
+
+    if (loading) return <div className="p-10 text-center">Loading blogs...</div>;
 
     return (
         <section id="blogs" className="bg-[#f5f3ee] py-20 px-6 relative">
@@ -49,18 +70,20 @@ const Blogs = () => {
                         prevEl: prevRef.current,
                         nextEl: nextRef.current,
                     }}
-                    onBeforeInit={(swiper) => {
+                    onInit={(swiper) => {
                         swiper.params.navigation.prevEl = prevRef.current;
                         swiper.params.navigation.nextEl = nextRef.current;
+                        swiper.navigation.init();
+                        swiper.navigation.update();
                     }}
                 >
                     {blogs.map((blog, index) => (
-                        <SwiperSlide key={`${blog.id}-${index}`}>
+                        <SwiperSlide key={blog._id || index}>
                             <Link href={`/blog/${blog.slug}`}>
                                 <div className="group cursor-pointer">
                                     <div className="overflow-hidden">
                                         <Image
-                                            src={blog.img}
+                                            src={blog.featuredImage ? blog.featuredImage : '/book1.png'}
                                             width={500}
                                             height={400}
                                             alt={blog.title}
@@ -69,16 +92,20 @@ const Blogs = () => {
                                     </div>
                                     <div className="mt-6">
                                         <p className={`${cormorant.className} italic text-sm text-gray-500`}>
-                                            {blog.date}
+                                            {new Date(blog.datePublished).toLocaleDateString("en-US", {
+                                                year: "numeric",
+                                                month: "long",
+                                                day: "numeric",
+                                            })}
                                         </p>
                                         <h3 className={`${cinzel.className} text-xl mt-3 leading-snug uppercase`}>
                                             {blog.title}
                                         </h3>
-                                        <div className="border-b border-gray-300 my-4"></div>
+                                        {/* <div className="border-b border-gray-300 my-4"></div>
                                         <div className="flex justify-between text-xs tracking-widest text-gray-600 uppercase">
                                             <span>{blog.category}</span>
-                                            <span>{blog.comments}</span>
-                                        </div>
+                                            <span>{blog.comments || "0 Comments"}</span>
+                                        </div> */}
                                     </div>
                                 </div>
                             </Link>
@@ -89,13 +116,13 @@ const Blogs = () => {
                 {/* Custom Arrows */}
                 <div
                     ref={prevRef}
-                    className="hidden md:flex absolute -left-6.25 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
+                    className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
                 >
                     &#10094;
                 </div>
                 <div
                     ref={nextRef}
-                    className="hidden md:flex absolute -right-6.25 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
+                    className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
                 >
                     &#10095;
                 </div>

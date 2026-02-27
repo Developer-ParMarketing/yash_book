@@ -28,6 +28,7 @@ export default function EditBlogPage() {
                         title: data.blog.title || "",
                         slug: data.blog.slug || "",
                         content: data.blog.content || "",
+                        featuredImage: data.blog.featuredImage || "",
                         categories: data.blog.categories?.join(", ") || "",
                         tags: data.blog.tags?.join(", ") || "",
                         metaKeywords: data.blog.metaKeywords?.join(", ") || "",
@@ -77,6 +78,7 @@ export default function EditBlogPage() {
                     title: formData.title,
                     slug: formData.slug,
                     content: formData.content,
+                    featuredImage: formData.featuredImage,
                     published: formData.published,
                     categories: formData.categories
                         ? formData.categories.split(",").map((c) => c.trim())
@@ -135,6 +137,26 @@ export default function EditBlogPage() {
                     className="w-full border p-2 rounded"
                     required
                 />
+
+                <div>
+                    <label className="block mb-2 font-medium">Featured Image URL</label>
+
+                    <input
+                        name="featuredImage"
+                        value={formData.featuredImage}
+                        onChange={handleChange}
+                        placeholder="Enter image URL"
+                        className="w-full border p-2 rounded"
+                    />
+
+                    {formData.featuredImage && (
+                        <img
+                            src={formData.featuredImage}
+                            alt="Preview"
+                            className="mt-4 w-full h-60 object-cover rounded"
+                        />
+                    )}
+                </div>
 
                 <input
                     name="categories"

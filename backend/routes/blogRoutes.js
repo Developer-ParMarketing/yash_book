@@ -13,6 +13,7 @@ const {
     createBlog,
     updateBlog,
     deleteBlog,
+    previewBlogBySlug,
 } = require("../controllers/blogController");
 
 
@@ -49,6 +50,9 @@ router.put("/admin/:id", updateBlog);
 
 // Delete
 router.delete("/admin/:id", deleteBlog);
+
+// Preview draft (admin only)
+router.get("/admin/preview/:slug", previewBlogBySlug);
 
 
 module.exports = router;
