@@ -7,10 +7,9 @@ const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
-
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: ["http://localhost:3000", "https://yashasviprasad.com"],
         credentials: true,
     })
 );
