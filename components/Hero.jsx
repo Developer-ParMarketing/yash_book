@@ -27,7 +27,7 @@ const Hero = () => {
 
 
                         <Image
-                            src="/YP-Profile.png"
+                            src="/YashProfile.png"
                             alt="hero"
                             width={900}
                             height={600}
