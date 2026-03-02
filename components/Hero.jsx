@@ -126,7 +126,7 @@ const Hero = () => {
     w-full max-w-7xl
     uppercase pointer-events-none z-30
 
-    flex flex-col items-center gap-75   /* Mobile layout */
+    flex flex-col items-center gap-85   /* Mobile layout */
     sm:block                           /* Desktop back to normal */
 
     ${cormorant.className}
