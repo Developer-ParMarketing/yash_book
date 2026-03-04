@@ -20,13 +20,59 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
 });
 
+// export const metadata = {
+//   title: "Yashasvi Prasad | Author of When Staying Stops Making Sense",
+//   description: "Explore the work of Yashasvi Prasad on decision-making, the psychology of endurance, and knowing when to stay or leave. Discover his book, \"When Staying Stops Making Sense.\"",
+//   other: {
+//     "google-site-verification": "vRQXCUTsbJz1bOwz9IvYuyoE0url7q0yz9GJogFC7m4",
+//   },
+
+// };
+
 export const metadata = {
   title: "Yashasvi Prasad | Author of When Staying Stops Making Sense",
-  description: "Explore the work of Yashasvi Prasad on decision-making, the psychology of endurance, and knowing when to stay or leave. Discover his book, \"When Staying Stops Making Sense.\"",
+  description:
+    'Explore the work of Yashasvi Prasad on decision-making, the psychology of endurance, and knowing when to stay or leave. Discover his book, "When Staying Stops Making Sense."',
+
   other: {
     "google-site-verification": "vRQXCUTsbJz1bOwz9IvYuyoE0url7q0yz9GJogFC7m4",
   },
 
+  // ✅ ADD THIS
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+  },
+
+  // ✅ VERY IMPORTANT FOR LINKEDIN
+  openGraph: {
+    title:
+      "Yashasvi Prasad | Author of When Staying Stops Making Sense",
+    description:
+      'Explore the work of Yashasvi Prasad on decision-making and leadership.',
+    url: "https://www.yashasviprasad.com",
+    siteName: "Yashasvi Prasad",
+    images: [
+      {
+        url: "https://www.yashasviprasad.com/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  // Optional but recommended
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Yashasvi Prasad | Author of When Staying Stops Making Sense",
+    description:
+      'Explore the work of Yashasvi Prasad on decision-making and leadership.',
+    images: ["https://www.yashasviprasad.com/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
