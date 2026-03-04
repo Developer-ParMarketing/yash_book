@@ -190,8 +190,8 @@ const Hero = () => {
                         className="absolute z-30 -bottom-[52%] md:-bottom-[22%] lg:-bottom-[22%] xl:-bottom-[22%]"
                     >
                         <Image
-                            src="https://belletrist.qodeinteractive.com/wp-content/uploads/2020/09/main-home-rev-01.png"
-                            alt="feather"
+                            src="/mouse.png"
+                            alt="mouse"
                             width={20}
                             height={20}
                         />
