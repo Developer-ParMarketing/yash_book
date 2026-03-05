@@ -60,7 +60,7 @@ const Navbar = () => {
             <div className="w-full min-w-0 flex items-center justify-between px-5 md:px-10 xl:px-16 2xl:px-12 h-20 sm:h-24 lg:h-28 xl:h-32">
 
                 {/* Logo */}
-                <Link href="" className="flex-shrink-0">
+                <Link href="/" className="flex-shrink-0">
                     <Image
                         src="/logo.png"
                         alt="logo"

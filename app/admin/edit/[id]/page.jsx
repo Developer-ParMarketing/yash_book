@@ -1,19 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { api } from "../../../variables";
 
+import "quill/dist/quill.snow.css";
+
 export default function EditBlogPage() {
+    const editorRef = useRef(null);
+    const quillRef = useRef(null);
     const { id } = useParams();
     const router = useRouter();
 
     const [formData, setFormData] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // ===================================
-    // FETCH BLOG DATA
-    // ===================================
+
     useEffect(() => {
         const fetchBlog = async () => {
             try {
@@ -46,12 +48,36 @@ export default function EditBlogPage() {
         if (id) fetchBlog();
     }, [id]);
 
+    useEffect(() => {
+        if (!editorRef.current || !formData) return;
+
+        const loadQuill = async () => {
+            const Quill = (await import("quill")).default;
+
+            if (!quillRef.current) {
+                quillRef.current = new Quill(editorRef.current, {
+                    theme: "snow",
+                });
+
+                quillRef.current.on("text-change", () => {
+                    setFormData((prev) => ({
+                        ...prev,
+                        content: quillRef.current.root.innerHTML,
+                    }));
+                });
+            }
+
+            quillRef.current.root.innerHTML = formData.content || "";
+        };
+
+        loadQuill();
+
+    }, [formData]);
+
     if (loading) return <div className="p-10">Loading...</div>;
     if (!formData) return <div className="p-10">Blog not found</div>;
 
-    // ===================================
-    // HANDLE CHANGE
-    // ===================================
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
 
@@ -61,9 +87,6 @@ export default function EditBlogPage() {
         }));
     };
 
-    // ===================================
-    // HANDLE UPDATE
-    // ===================================
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -128,7 +151,7 @@ export default function EditBlogPage() {
                     required
                 />
 
-                <textarea
+                {/* <textarea
                     name="content"
                     value={formData.content}
                     onChange={handleChange}
@@ -136,8 +159,15 @@ export default function EditBlogPage() {
                     placeholder="Content"
                     className="w-full border p-2 rounded"
                     required
-                />
-
+                /> */}
+                <div>
+                    <label className="block mb-2 font-medium">Content</label>
+                    <div
+                        ref={editorRef}
+                        style={{ height: "300px" }}
+                        className="bg-white"
+                    />
+                </div>
                 <div>
                     <label className="block mb-2 font-medium">Featured Image URL</label>
 

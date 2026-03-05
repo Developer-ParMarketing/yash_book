@@ -47,10 +47,10 @@ const Blogs = () => {
                 {/* Heading */}
                 <div className="text-center mb-14">
                     <p className={`${cormorant.className} italic text-lg text-gray-600`}>
-                        Your Shopping expo:
+                        Our Latest
                     </p>
                     <h2 className={`${cinzel.className} text-4xl md:text-5xl lg:text-6xl mt-4`}>
-                        New Blogs
+                        Blog
                     </h2>
                     <div className="w-16 h-px bg-gray-400 mx-auto mt-6"></div>
                 </div>
