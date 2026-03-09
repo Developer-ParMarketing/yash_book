@@ -14,6 +14,8 @@ const {
     updateBlog,
     deleteBlog,
     previewBlogBySlug,
+    addComment,
+    likeBlog,
 } = require("../controllers/blogController");
 
 
@@ -30,7 +32,12 @@ router.get("/related/:slug", getRelatedBlogs);
 // Get single blog by slug
 router.get("/post/:slug", getBlogBySlug);
 
+//  Like blog
+router.post("/post/:slug/like", likeBlog);
 
+
+//  Add comment
+router.post("/post/:slug/comment", addComment);
 
 // ===============================
 // ADMIN ROUTES

@@ -45,14 +45,21 @@ exports.login = async (req, res) => {
         );
 
 
+        // res.cookie("token", token, {
+        //     httpOnly: true,
+        //     secure: true,
+        //     sameSite: "none",
+        //     domain: ".yashasviprasad.com",
+        //     path: "/",
+        //     maxAge: 7 * 24 * 60 * 60 * 1000,
+        // });
+
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true,                      // MUST be true on production
-            sameSite: "none",                  // MUST be none for cross-subdomain
-            domain: ".yashasviprasad.com",     // VERY IMPORTANT
-            path: "/",                         // recommended
-            maxAge: 7 * 24 * 60 * 60 * 1000,
+            secure: false,
+            sameSite: "lax",
         });
+
         res.json({
             message: "Login successful",
             user: {
@@ -71,8 +78,10 @@ exports.login = async (req, res) => {
 exports.logout = (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false, // true in production
+        secure: true,
+        sameSite: "none",
+        domain: ".yashasviprasad.com",
+        path: "/",
     });
 
     res.json({ message: "Logged out successfully" });

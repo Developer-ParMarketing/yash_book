@@ -177,3 +177,66 @@ exports.previewBlogBySlug = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.addComment = async (req, res) => {
+    try {
+
+        const slug = decodeURIComponent(req.params.slug);
+
+        const { name, email, website, comment } = req.body;
+
+        const blog = await Blog.findOne({ slug });
+
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        blog.comments.push({
+            name,
+            email,
+            website,
+            comment,
+        });
+
+        await blog.save();
+
+        res.json({ comments: blog.comments });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+exports.likeBlog = async (req, res) => {
+    try {
+
+        const slug = decodeURIComponent(req.params.slug);
+        const userId = req.body.userId;
+
+        const blog = await Blog.findOne({ slug });
+
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        const alreadyLiked = blog.likedBy.includes(userId);
+
+        if (alreadyLiked) {
+            blog.likes -= 1;
+            blog.likedBy = blog.likedBy.filter(id => id !== userId);
+        } else {
+            blog.likes += 1;
+            blog.likedBy.push(userId);
+        }
+
+        await blog.save();
+
+        res.json({
+            likes: blog.likes,
+            liked: !alreadyLiked
+        });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

@@ -86,6 +86,15 @@ export default function EditBlogPage() {
             const quill = new Quill(editorRef.current, {
                 theme: "snow",
                 placeholder: "Write blog content here...",
+                modules: {
+                    toolbar: [
+                        [{ header: [1, 2, 3, false] }],
+                        ["bold", "italic", "underline"],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["link", "blockquote"],
+                        ["clean"]
+                    ]
+                }
             });
 
             // ✅ Set content RIGHT HERE after Quill is ready

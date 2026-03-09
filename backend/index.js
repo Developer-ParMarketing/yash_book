@@ -12,7 +12,8 @@ app.set("trust proxy", 1);
 const allowedOrigins = [
     "http://localhost:3000",           // local dev
     "http://yashasviprasad.com",      // insecure live frontend
-    "https://yashasviprasad.com"      // secure live frontend
+    "https://yashasviprasad.com",
+    "https://www.yashasviprasad.com"     // secure live frontend
 ];
 
 app.use(

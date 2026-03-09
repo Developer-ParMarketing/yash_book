@@ -27,7 +27,7 @@ const Post = () => {
 
                 {/* Philosophy Section */}
                 <section className=" text-center  md:text-left lg:text-left xl:text-left ">
-                    <h1
+                    <h2
                         className={`
               ${cinzel.className}
             text-3xl sm:text-4xl lg:text-5xl
@@ -38,7 +38,7 @@ const Post = () => {
                     >
                         Philosophy
 
-                    </h1>
+                    </h2>
 
                     <p
                         className={`
@@ -56,7 +56,7 @@ const Post = () => {
 
                 {/* Background Section */}
                 <section className=" text-center  md:text-left lg:text-left xl:text-left ">
-                    <h1
+                    <h2
                         className={`
               ${cinzel.className}
             text-3xl sm:text-4xl lg:text-5xl
@@ -67,7 +67,7 @@ const Post = () => {
                     >
                         Background
 
-                    </h1>
+                    </h2>
 
                     <h2
                         className={`

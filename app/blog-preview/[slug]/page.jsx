@@ -5,17 +5,44 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { api } from "@/app/variables";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
+
+const cinzel = Cinzel({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
+});
+
 
 // =============================================
 // Strip Elementor fixed pixel widths/heights
 // =============================================
 function sanitizeElementorHtml(html) {
     if (!html) return "";
+
     return html
         .replace(/(?<!\-)(width)\s*:\s*\d+(\.\d+)?px/gi, "width: 100%")
         .replace(/height\s*:\s*\d+(\.\d+)?px/gi, "height: auto")
         .replace(/--content-width:[^;]+;/gi, "")
-        .replace(/max-width\s*:\s*min\([^)]+\)/gi, "max-width: 100%");
+        .replace(/max-width\s*:\s*min\([^)]+\)/gi, "max-width: 100%")
+
+        // Convert Quill bullet lists
+        .replace(/<ol>([\s\S]*?)<\/ol>/g, (match) => {
+            if (match.includes('data-list="bullet"')) {
+                return match.replace(/<ol>/g, "<ul>").replace(/<\/ol>/g, "</ul>");
+            }
+            return match;
+        })
+
+        // Remove quill UI elements
+        .replace(/<span class="ql-ui"[^>]*><\/span>/g, "")
+
+        // Remove bullet attribute
+        .replace(/ data-list="bullet"/g, "");
 }
 
 // =============================================
@@ -28,7 +55,7 @@ function FaqSection({ faqs }) {
 
     return (
         <div className="mt-12 pt-10 border-t-2 border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Frequently Asked Questions
             </h2>
 
@@ -41,12 +68,12 @@ function FaqSection({ faqs }) {
                             key={i}
                             className={`border rounded-xl overflow-hidden ${isOpen
                                 ? "border-blue-300 shadow-md shadow-blue-50"
-                                : "border-gray-200"
+                                : "border-gray-200 text-xl"
                                 }`}
                         >
                             <button
                                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                                className="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-semibold bg-gray-50"
+                                className="w-full flex items-center justify-between px-5 py-4 text-left  font-semibold bg-gray-50 text-xl"
                             >
                                 <span>{faq.question}</span>
 
@@ -59,7 +86,7 @@ function FaqSection({ faqs }) {
                             </button>
 
                             {isOpen && (
-                                <div className="px-5 py-4 text-sm text-gray-600 bg-white border-t">
+                                <div className="px-5 py-4  text-gray-800 bg-white border-t text-xl">
                                     {faq.answer}
                                 </div>
                             )}
@@ -93,13 +120,81 @@ function BlogContent({ content, faqs }) {
                         width: 100% !important; max-width: 100% !important;
                         min-width: 0 !important; height: auto !important;
                     }
-                    .blog-content p { margin: 0 0 1.3rem; color: #374151; line-height: 1.85; font-size: 1.05rem; }
+                   .blog-content p {
+  margin: 0 0 1rem;
+  color: #374151;
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+/* remove empty paragraphs */
+.blog-content p:empty,
+.blog-content p:has(br:only-child) {
+  display: none;
+}
+  .blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  font-family: ${cinzel.style.fontFamily};
+}
                     .blog-content h1 { font-size: 1.6rem; font-weight: 700; color: #111827; margin: 2.5rem 0 1rem; border-left: 4px solid #2563eb; padding-left: 12px; }
                     .blog-content h2 { font-size: 1.35rem; font-weight: 700; color: #111827; margin: 2.2rem 0 0.75rem; }
-                    .blog-content h3 { font-size: 1.1rem; font-weight: 600; color: #1d4ed8; margin: 1.8rem 0 0.5rem; }
+                    .blog-content h3 { font-size: 1.1rem; font-weight: 600; color: #111827; margin: 1.8rem 0 0.5rem; }
                     .blog-content h4 { font-size: 1.1rem; font-weight: 600; color: #111827; margin: 1.6rem 0 0.5rem; }
-                    .blog-content ul, .blog-content ol { margin: 0 0 1.3rem 1.4rem; color: #374151; }
-                    .blog-content li { margin-bottom: 0.45rem; line-height: 1.7; }
+               /* Fix paragraph spacing */
+.blog-content p {
+  font-family: ${cormorant.style.fontFamily};
+  margin: 0 0 1rem;
+  color: #374151;
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+/* Remove empty paragraphs created by Quill */
+.blog-content p:empty {
+  display: none;
+}
+
+/* Reset list styles first */
+.blog-content ul,
+.blog-content ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.6rem;
+  color: #374151;
+}
+
+/* Unordered list */
+.blog-content ul {
+  list-style: disc outside;
+}
+
+/* Ordered list */
+.blog-content ol {
+  list-style: decimal outside;
+}
+
+/* List items */
+.blog-content ul li {
+  list-style-type: disc;
+  margin-bottom: 0.45rem;
+  line-height: 1.7;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+  margin-bottom: 0.45rem;
+  line-height: 1.7;
+}
+
+/* Nested lists */
+.blog-content ul ul {
+  list-style-type: circle;
+}
+
+.blog-content ul ul ul {
+  list-style-type: square;
+}
                     .blog-content blockquote { border-left: 4px solid #2563eb; margin: 2rem 0; padding: 1rem 1.25rem; background: #eff6ff; border-radius: 0 8px 8px 0; color: #1e40af; font-style: italic; }
                     .blog-content strong { font-weight: 700; color: #111; }
                     .blog-content a { color: #2563eb; text-decoration: underline; }
@@ -186,7 +281,7 @@ export default function Page() {
     );
 
     return (
-        <div className=" min-h-screen overflow-x-hidden">
+        <div className={`${cormorant.className} min-h-screen overflow-x-hidden`}>
 
             {/* Preview Banner */}
             <div className="bg-yellow-300 text-yellow-900 text-center text-xs font-semibold tracking-widest uppercase py-2 px-4 border-b border-yellow-400">
@@ -202,9 +297,9 @@ export default function Page() {
 
                         {/* Meta row */}
                         <div className="flex items-center flex-wrap gap-2 mb-5">
-                            {blog.categories?.map((cat) => (
+                            {blog.categories?.map((cat, index) => (
                                 <span
-                                    key={cat}
+                                    key={`${cat}-${index}`}
                                     className="text-xs font-semibold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full"
                                 >
                                     {cat}
@@ -213,33 +308,38 @@ export default function Page() {
                             {blog.categories?.length > 0 && (
                                 <span className="w-1 h-1 rounded-full bg-gray-300 inline-block" />
                             )}
-                            <span className="text-xs text-gray-400">
+                            <span className="text-lg">
                                 {new Date(blog.datePublished || blog.createdAt).toLocaleDateString("en-IN", {
                                     day: "numeric", month: "long", year: "numeric",
                                 })}
                             </span>
+                            <span className="w-1 h-1 rounded-full bg-gray-300 inline-block" />
+                            <span className="text-lg capitalize">
+                                yashasvi prasad
+                            </span>
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 tracking-tight">
+                        <h1 className={`${cinzel.className} text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 tracking-tight`}>
                             {blog.title}
                         </h1>
 
                         {/* Excerpt */}
                         {blog.excerpt && (
-                            <p className="text-base sm:text-lg text-gray-500 italic border-l-4 border-blue-500 pl-4 mb-8 leading-relaxed">
+                            <p className="text-base sm:text-lg text-black italic border-l-4 border-blue-500 pl-4 mb-8 leading-relaxed">
                                 {blog.excerpt}
                             </p>
                         )}
 
                         {/* Featured Image */}
                         {blog.featuredImage && (
-                            <div className="relative w-full h-56 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden mb-10 shadow-xl">
+                            <div className="w-full mb-10 rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                                 <Image
                                     src={blog.featuredImage}
                                     alt={blog.title}
-                                    fill
-                                    className="object-cover"
+                                    width={1200}
+                                    height={800}
+                                    className="w-full h-auto object-contain"
                                     priority
                                 />
                             </div>
@@ -266,12 +366,12 @@ export default function Page() {
                     {/* ── Sidebar ── */}
                     <aside className="hidden lg:block w-72 flex-shrink-0">
                         <div className="sticky top-8">
-                            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 pb-3 border-b border-gray-200 mb-5">
+                            <p className="text-xs font-bold uppercase tracking-widest text-gray-700 pb-3 border-b border-gray-200 mb-5">
                                 Related Posts
                             </p>
 
                             {related.length === 0 && (
-                                <p className="text-sm text-gray-400 italic">No related posts found.</p>
+                                <p className="text-sm text-gray-700 italic">No related posts found.</p>
                             )}
 
                             <div className="divide-y divide-gray-100">
@@ -293,7 +393,7 @@ export default function Page() {
                                             <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-3">
                                                 {item.title}
                                             </p>
-                                            <p className="text-xs text-gray-400 mt-1">
+                                            <p className="text-xs text-gray-700 mt-1">
                                                 {new Date(item.createdAt).toLocaleDateString("en-IN", {
                                                     day: "numeric", month: "short", year: "numeric",
                                                 })}
@@ -310,7 +410,7 @@ export default function Page() {
                 {/* Mobile Related Posts */}
                 {related.length > 0 && (
                     <div className="lg:hidden mt-12 pt-8 border-t border-gray-200">
-                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
+                        <p className="text-xs font-bold uppercase tracking-widest text-gray-700 mb-5">
                             Related Posts
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -332,7 +432,7 @@ export default function Page() {
                                         <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-2">
                                             {item.title}
                                         </p>
-                                        <p className="text-xs text-gray-400 mt-1">
+                                        <p className="text-xs text-gray-700 mt-1">
                                             {new Date(item.createdAt).toLocaleDateString("en-IN", {
                                                 day: "numeric", month: "short", year: "numeric",
                                             })}

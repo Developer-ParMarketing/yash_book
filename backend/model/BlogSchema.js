@@ -1,5 +1,29 @@
 const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+
+  email: {
+    type: String,
+    required: true,
+  },
+
+  website: String,
+
+  comment: {
+    type: String,
+    required: true,
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const blogSchema = new mongoose.Schema(
   {
     title: {
@@ -47,6 +71,18 @@ const blogSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+
+    likes: {
+      type: Number,
+      default: 0,
+    },
+    likedBy: [
+      {
+        type: String
+      }
+    ],
+
+    comments: [commentSchema],
 
     faqs: [
       {
