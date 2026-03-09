@@ -25,7 +25,7 @@ const Blogs = () => {
         try {
             const res = await fetch(`${api}/blogs`);
             const data = await res.json();
-            // New blogs first
+
             setBlogs(data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
             setLoading(false);
         } catch (error) {
@@ -44,7 +44,7 @@ const Blogs = () => {
         <section id="blogs" className="bg-[#f5f3ee] py-20 px-6 relative">
             <div className="max-w-7xl mx-auto relative">
 
-                {/* Heading */}
+
                 <div className="text-center mb-14">
                     <p className={`${cormorant.className} italic text-lg text-gray-600`}>
                         Our Latest
@@ -87,7 +87,7 @@ const Blogs = () => {
                                             width={500}
                                             height={400}
                                             alt={blog.title}
-                                            className="w-full h-75 object-cover group-hover:scale-105 transition duration-500"
+                                            className="w-full h-[300px] object-contain bg-gray-100 group-hover:scale-105 transition duration-500"
                                         />
                                     </div>
                                     <div className="mt-6">
@@ -116,13 +116,14 @@ const Blogs = () => {
                 {/* Custom Arrows */}
                 <div
                     ref={prevRef}
-                    className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
+                    className="hidden md:flex items-center justify-center absolute -left-18 top-1/2 translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black bg-white w-10 h-10 rounded-full shadow-md"
                 >
                     &#10094;
                 </div>
+
                 <div
                     ref={nextRef}
-                    className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black"
+                    className="hidden md:flex items-center justify-center absolute -right-18 top-1/2 translate-y-1/2 z-10 cursor-pointer text-3xl font-bold text-gray-700 hover:text-black bg-white w-10 h-10 rounded-full shadow-md"
                 >
                     &#10095;
                 </div>

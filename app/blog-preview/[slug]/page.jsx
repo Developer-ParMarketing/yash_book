@@ -21,59 +21,47 @@ function sanitizeElementorHtml(html) {
 // =============================================
 // FAQ Accordion
 // =============================================
-function FaqSection({ html }) {
+function FaqSection({ faqs }) {
     const [openIndex, setOpenIndex] = useState(null);
-    const faqs = [];
 
-    if (typeof window !== "undefined") {
-        const parser = new window.DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        doc.querySelectorAll(".faq-item").forEach((item) => {
-            const btn = item.querySelector(".faq-toggle");
-            const body = item.querySelector(".faq-body");
-            if (btn && body) {
-                const icon = btn.querySelector(".faq-icon");
-                if (icon) icon.remove();
-                faqs.push({ question: btn.textContent.trim(), answer: body.innerHTML.trim() });
-            }
-        });
-    }
-
-    if (faqs.length === 0) return null;
+    if (!faqs || faqs.length === 0) return null;
 
     return (
         <div className="mt-12 pt-10 border-t-2 border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Frequently Asked Questions
+            </h2>
+
             <div className="space-y-3">
                 {faqs.map((faq, i) => {
                     const isOpen = openIndex === i;
+
                     return (
                         <div
                             key={i}
-                            className={`border rounded-xl overflow-hidden transition-all duration-200 ${isOpen ? "border-blue-300 shadow-md shadow-blue-50" : "border-gray-200"
+                            className={`border rounded-xl overflow-hidden ${isOpen
+                                ? "border-blue-300 shadow-md shadow-blue-50"
+                                : "border-gray-200"
                                 }`}
                         >
                             <button
                                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                                aria-expanded={isOpen}
-                                className={`w-full flex items-center justify-between gap-3 px-5 py-4 text-left text-sm font-semibold transition-colors duration-150 ${isOpen
-                                    ? "bg-blue-50 text-blue-700"
-                                    : "bg-gray-50 text-gray-800 hover:bg-blue-50"
-                                    }`}
+                                className="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-semibold bg-gray-50"
                             >
                                 <span>{faq.question}</span>
+
                                 <span
-                                    className={`text-xs flex-shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180 text-blue-500" : "text-gray-400"
+                                    className={`transition-transform ${isOpen ? "rotate-180" : ""
                                         }`}
                                 >
                                     ▼
                                 </span>
                             </button>
+
                             {isOpen && (
-                                <div
-                                    className="px-5 py-4 text-sm leading-relaxed text-gray-600 bg-white border-t border-gray-100"
-                                    dangerouslySetInnerHTML={{ __html: faq.answer }}
-                                />
+                                <div className="px-5 py-4 text-sm text-gray-600 bg-white border-t">
+                                    {faq.answer}
+                                </div>
                             )}
                         </div>
                     );
@@ -86,7 +74,7 @@ function FaqSection({ html }) {
 // =============================================
 // Blog Content renderer
 // =============================================
-function BlogContent({ content }) {
+function BlogContent({ content, faqs }) {
     if (!content) return null;
     const isHtml = /<\/?[a-z][\s\S]*>/i.test(content);
 
@@ -135,7 +123,7 @@ function BlogContent({ content }) {
                     className="blog-content"
                     dangerouslySetInnerHTML={{ __html: sanitizeElementorHtml(mainHtml) }}
                 />
-                {hasFaq && <FaqSection html={content} />}
+                {faqs?.length > 0 && <FaqSection faqs={faqs} />}
             </>
         );
     }
@@ -258,7 +246,7 @@ export default function Page() {
                         )}
 
                         {/* Content */}
-                        <BlogContent content={blog.content} />
+                        <BlogContent content={blog.content} faqs={blog.faqs} />
 
                         {/* Tags */}
                         {blog.tags?.length > 0 && (

@@ -100,36 +100,52 @@ exports.getBlogById = async (req, res) => {
 
 exports.createBlog = async (req, res) => {
     try {
-        // Generate URL-friendly slug from title
+
         const slug = slugify(req.body.title, { lower: true, strict: true });
+
+        // clean FAQ data
+        const faqs = (req.body.faqs || []).filter(
+            (faq) => faq.question && faq.answer
+        );
 
         const blog = await Blog.create({
             ...req.body,
-            slug, // use the slug here
+            slug,
+            faqs
         });
 
         res.status(201).json({ blog });
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
-
 
 // Update blog
 exports.updateBlog = async (req, res) => {
     try {
+
+        req.body.dateModified = new Date();
+
+        const faqs = (req.body.faqs || []).filter(
+            (faq) => faq.question && faq.answer
+        );
+
         const blog = await Blog.findByIdAndUpdate(
             req.params.id,
-            req.body,
+            {
+                ...req.body,
+                faqs
+            },
             { new: true }
         );
 
         res.json({ blog });
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
-
 
 // Delete blog
 exports.deleteBlog = async (req, res) => {

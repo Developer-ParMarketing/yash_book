@@ -353,7 +353,14 @@ export default function CreateBlogPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        const htmlContent = blocksToHtml(contentBlocks) + "\n" + faqsToHtml(faqs);
+        const htmlContent = blocksToHtml(contentBlocks);
+        if (!htmlContent.trim()) {
+            alert("Please add at least one content block before publishing.");
+            return;
+        }
+
+        setLoading(true);
+
 
         try {
             const res = await fetch(`${api}/blogs/admin`, {
@@ -362,14 +369,15 @@ export default function CreateBlogPage() {
                 credentials: "include",
                 body: JSON.stringify({
                     ...formData,
-                    // Save excerpt as plain text — strip HTML so it never gets messy
                     excerpt: htmlToPlainText(excerpt),
                     content: htmlContent,
-                    categories: formData.categories ? formData.categories.split(",").map((c) => c.trim()) : [],
-                    tags: formData.tags ? formData.tags.split(",").map((t) => t.trim()) : [],
-                    metaKeywords: formData.metaKeywords ? formData.metaKeywords.split(",").map((k) => k.trim()) : [],
+                    categories: formData.categories ? formData.categories.split(",").map(c => c.trim()) : [],
+                    tags: formData.tags
+                        ? formData.tags.split(",").map(t => t.trim()).filter(Boolean)
+                        : [],
+                    metaKeywords: formData.metaKeywords ? formData.metaKeywords.split(",").map(k => k.trim()) : [],
                     faqs: faqs.map(({ question, answer }) => ({ question, answer })),
-                }),
+                })
             });
             if (res.ok) {
                 alert("Blog Created Successfully 🚀");

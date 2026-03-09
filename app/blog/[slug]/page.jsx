@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { api } from "@/app/variables";
+import FaqSection from "@/components/FaqSection";
 
 // =============================================
 // Metadata
@@ -79,28 +80,28 @@ function sanitizeElementorHtml(html) {
 // =============================================
 // Blog Content
 // =============================================
-function BlogContent({ content }) {
+function BlogContent({ content, faqs }) {
     if (!content) return null;
-    const isHtml = /<\/?[a-z][\s\S]*>/i.test(content);
 
-    if (isHtml) {
-        return (
-            <div
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: sanitizeElementorHtml(content) }}
-            />
-        );
-    }
+    // ✅ Remove the embedded FAQ HTML from content to avoid duplication
+    const cleanedContent = content.replace(
+        /<div[^>]*class="faq-section"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi,
+        ""
+    );
 
     return (
-        <div className="blog-content">
-            {content.split(/\n\n+/).filter(Boolean).map((para, i) => (
-                <p key={i}>{para.trim()}</p>
-            ))}
-        </div>
+        <>
+            <div
+                className="blog-content"
+                dangerouslySetInnerHTML={{
+                    __html: sanitizeElementorHtml(cleanedContent),
+                }}
+            />
+
+            {faqs?.length > 0 && <FaqSection faqs={faqs} />}
+        </>
     );
 }
-
 // =============================================
 // Page
 // =============================================
@@ -244,19 +245,19 @@ export default async function Page({ params }) {
 
                             {/* Featured Image */}
                             {blog.featuredImage && (
-                                <div className="relative w-full h-52 sm:h-72 lg:h-[400px] rounded-2xl overflow-hidden mb-10 shadow-lg">
+                                <div className="relative w-full h-56 sm:h-80 lg:h-105 rounded-2xl overflow-hidden mb-10 shadow-xl bg-gray-100">
                                     <Image
                                         src={blog.featuredImage}
                                         alt={blog.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-contain"
                                         priority
                                     />
                                 </div>
                             )}
 
                             {/* Content */}
-                            <BlogContent content={blog.content} />
+                            <BlogContent content={blog.content} faqs={blog.faqs} />
 
                             {/* Tags */}
                             {blog.tags?.length > 0 && (

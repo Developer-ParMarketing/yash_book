@@ -48,6 +48,12 @@ const blogSchema = new mongoose.Schema(
       default: 0,
     },
 
+    faqs: [
+      {
+        question: String,
+        answer: String,
+      },
+    ],
 
     metaTitle: String,
     metaDescription: String,
