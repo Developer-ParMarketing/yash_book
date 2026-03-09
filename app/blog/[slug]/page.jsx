@@ -9,6 +9,7 @@ import BlogStats from "@/components/BlogStats";
 import { FaEye } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaComment } from "react-icons/fa";
+import ShareButton from "@/components/ShareButton";
 
 const cinzel = Cinzel({
     subsets: ["latin"],
@@ -405,6 +406,11 @@ export default async function Page({ params }) {
                                 <LikeButton
                                     slug={blog.slug}
                                     initialLikes={blog.likes}
+                                />
+
+                                <ShareButton
+                                    slug={blog.slug}
+                                    initialShares={blog.shares}
                                 />
                             </div>
 

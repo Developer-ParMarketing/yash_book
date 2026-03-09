@@ -240,3 +240,26 @@ exports.likeBlog = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.shareBlog = async (req, res) => {
+    try {
+
+        const slug = decodeURIComponent(req.params.slug);
+
+        const blog = await Blog.findOne({ slug });
+
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        blog.shares += 1;
+
+        await blog.save();
+
+        res.json({ shares: blog.shares });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

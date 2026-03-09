@@ -16,6 +16,7 @@ const {
     previewBlogBySlug,
     addComment,
     likeBlog,
+    shareBlog,
 } = require("../controllers/blogController");
 
 
@@ -38,6 +39,9 @@ router.post("/post/:slug/like", likeBlog);
 
 //  Add comment
 router.post("/post/:slug/comment", addComment);
+
+//share
+router.post("/post/:slug/share", shareBlog);
 
 // ===============================
 // ADMIN ROUTES
