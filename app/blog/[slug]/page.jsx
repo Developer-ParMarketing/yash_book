@@ -166,11 +166,12 @@ export default async function Page({ params }) {
 
                 /* ── Typography ── */
                 .blog-content {
-                     font-family: ${cinzel.style.fontFamily};
-                    font-size: 1.05rem;
-                    line-height: 1.9;
-                    color: #1f2937;
-                }
+     font-family: ${cormorant.style.fontFamily};
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #1f2937;
+    text-transform: none;
+}
                 .blog-content h1 {
                      font-family: ${cinzel.style.fontFamily};
                     font-size: clamp(1.35rem, 3vw, 1.75rem);
@@ -367,7 +368,7 @@ export default async function Page({ params }) {
                             </div>
 
                             {/* Title */}
-                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-5 tracking-tight">
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5 tracking-tight">
                                 {blog.title}
                             </h1>
                             <BlogStats
