@@ -162,54 +162,9 @@ export default function RootLayout({ children }) {
                   ]
                 },
 
-                {
-                  "@type": "BreadcrumbList",
-                  "@id": "https://yashasviprasad.com/#breadcrumb",
-                  itemListElement: [
-                    {
-                      "@type": "ListItem",
-                      position: 1,
-                      name: "Home",
-                      item: "https://yashasviprasad.com/"
-                    }
-                  ]
-                },
 
-                {
-                  "@type": "FAQPage",
-                  "@id": "https://yashasviprasad.com/#faq",
-                  mainEntity: [
-                    {
-                      "@type": "Question",
-                      name: "Who is Yashasvi Prasad?",
-                      acceptedAnswer: {
-                        "@type": "Answer",
-                        text:
-                          "Yashasvi Prasad is an author known for writing about decision-making, judgment, and the hidden costs of staying in situations that no longer evolve."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      name:
-                        "What is the book 'When Staying Stops Making Sense' about?",
-                      acceptedAnswer: {
-                        "@type": "Answer",
-                        text:
-                          "The book explores the psychology of staying in situations that no longer evolve and examines how people evaluate decisions under pressure."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      name:
-                        "Where can I buy 'When Staying Stops Making Sense'?",
-                      acceptedAnswer: {
-                        "@type": "Answer",
-                        text:
-                          "The book is available on Amazon and other online bookstores."
-                      }
-                    }
-                  ]
-                }
+
+
               ]
             })
           }}
