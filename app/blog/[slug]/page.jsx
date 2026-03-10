@@ -10,6 +10,7 @@ import { FaEye } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaComment } from "react-icons/fa";
 import ShareButton from "@/components/ShareButton";
+import Script from "next/script";
 
 const cinzel = Cinzel({
     subsets: ["latin"],
@@ -83,6 +84,8 @@ async function getBlogData(slug) {
     }
 }
 
+
+
 function stripHtml(html) {
     return html?.replace(/<[^>]*>?/gm, "").trim() || "";
 }
@@ -150,8 +153,95 @@ export default async function Page({ params }) {
         </div>
     );
 
+    const siteUrl = "https://yashasviprasad.com";
+    const blogUrl = `${siteUrl}/blog/${blog.slug}`;
+
+    const blogSchema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": `${blogUrl}/#article`,
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": blogUrl
+                },
+                "headline": blog.title,
+                "description": blog.metaDescription || blog.excerpt || "",
+                "image": blog.featuredImage?.url || "",
+                "author": {
+                    "@type": "Person",
+                    "@id": "https://yashasviprasad.com/#person",
+                    "name": "Yashasvi Prasad",
+                    "url": "https://yashasviprasad.com/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Yashasvi Prasad",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://yashasviprasad.com/logo.png"
+                    }
+                },
+                "datePublished": blog.datePublished,
+                "dateModified": blog.updatedAt || blog.datePublished,
+                "inLanguage": "en"
+            },
+
+            {
+                "@type": "BreadcrumbList",
+                "@id": `${blogUrl}/#breadcrumb`,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://yashasviprasad.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://yashasviprasad.com/blog"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": blog.title,
+                        "item": blogUrl
+                    }
+                ]
+            },
+
+            ...(blog.faqs?.length
+                ? [
+                    {
+                        "@type": "FAQPage",
+                        "@id": `${blogUrl}/#faq`,
+                        "mainEntity": blog.faqs.map((faq) => ({
+                            "@type": "Question",
+                            "name": faq.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": faq.answer
+                            }
+                        }))
+                    }
+                ]
+                : [])
+        ]
+    };
+
     return (
         <>
+            <Script
+                id="blog-schema"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(blogSchema)
+                }}
+            />
             <style>{`
                 /* ── Elementor override ── */
                 .blog-content { overflow-x: hidden; min-width: 0; }

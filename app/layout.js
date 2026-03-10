@@ -95,45 +95,123 @@ export default function RootLayout({ children }) {
   })(window,document,'script','dataLayer','GTM-5QVB7WKM');
 `}
         </Script>
+
+
+
         <Script
           id="schema-ld"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `
-          {
-          "@context":"https://schema.org",
-          "@graph":[
-          {
-          "@type":"Person",
-          "@id":"https://yashasviprasad.com/#person",
-          "name":"Yashasvi Prasad",
-          "url":"https://yashasviprasad.com/",
-          "jobTitle":"Author",
-          "description":"Yashasvi Prasad is an author exploring decision-making, judgment, and the hidden costs of staying in situations that no longer evolve.",
-          "sameAs":[
-          "https://www.instagram.com/whenstayingstopsmakingsense/",
-          "https://www.linkedin.com/in/yashasvi-prasad/",
-          "https://www.facebook.com/people/Whenstayingstopsmakingsense/61587945454452/",
-          "https://medium.com/@yashasvi_prasad",
-          "https://www.amazon.in/stores/author/B0GLXHF8WP",
-          "https://www.goodreads.com/author/show/68429243.Yashasvi_Prasad"
-          ]
-          },
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://yashasviprasad.com/#person",
+                  name: "Yashasvi Prasad",
+                  url: "https://yashasviprasad.com/",
+                  jobTitle: "Author",
+                  description:
+                    "Yashasvi Prasad is an author exploring decision-making, judgment, and the hidden costs of staying in situations that no longer evolve.",
+                  sameAs: [
+                    "https://www.instagram.com/whenstayingstopsmakingsense/",
+                    "https://www.linkedin.com/in/yashasvi-prasad/",
+                    "https://www.facebook.com/people/Whenstayingstopsmakingsense/61587945454452/",
+                    "https://medium.com/@yashasvi_prasad",
+                    "https://www.amazon.in/stores/author/B0GLXHF8WP",
+                    "https://www.goodreads.com/author/show/68429243.Yashasvi_Prasad"
+                  ]
+                },
 
-          {
-          "@type":"WebSite",
-          "@id":"https://yashasviprasad.com/#website",
-          "url":"https://yashasviprasad.com/",
-          "name":"Yashasvi Prasad",
-          "inLanguage":"en",
-          "publisher":{
-          "@id":"https://yashasviprasad.com/#person"
-          }
-          }
-          ]
-          }
-          `,
+                {
+                  "@type": "WebSite",
+                  "@id": "https://yashasviprasad.com/#website",
+                  url: "https://yashasviprasad.com/",
+                  name: "Yashasvi Prasad",
+                  inLanguage: "en",
+                  publisher: {
+                    "@id": "https://yashasviprasad.com/#person"
+                  },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate:
+                        "https://yashasviprasad.com/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+
+                {
+                  "@type": "Book",
+                  "@id": "https://yashasviprasad.com/#book1",
+                  name: "When Staying Stops Making Sense",
+                  isbn: "979-8902969693",
+                  inLanguage: "en",
+                  image:
+                    "https://m.media-amazon.com/images/I/51JrhPSwpiL._SY425_.jpg",
+                  author: {
+                    "@id": "https://yashasviprasad.com/#person"
+                  },
+                  url: "https://amzn.in/d/05GIeGub",
+                  sameAs: [
+                    "https://www.amazon.in/dp/B0GLYSB9ZT",
+                    "https://www.goodreads.com/author/show/68429243.Yashasvi_Prasad"
+                  ]
+                },
+
+                {
+                  "@type": "BreadcrumbList",
+                  "@id": "https://yashasviprasad.com/#breadcrumb",
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      name: "Home",
+                      item: "https://yashasviprasad.com/"
+                    }
+                  ]
+                },
+
+                {
+                  "@type": "FAQPage",
+                  "@id": "https://yashasviprasad.com/#faq",
+                  mainEntity: [
+                    {
+                      "@type": "Question",
+                      name: "Who is Yashasvi Prasad?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                          "Yashasvi Prasad is an author known for writing about decision-making, judgment, and the hidden costs of staying in situations that no longer evolve."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      name:
+                        "What is the book 'When Staying Stops Making Sense' about?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                          "The book explores the psychology of staying in situations that no longer evolve and examines how people evaluate decisions under pressure."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      name:
+                        "Where can I buy 'When Staying Stops Making Sense'?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                          "The book is available on Amazon and other online bookstores."
+                      }
+                    }
+                  ]
+                }
+              ]
+            })
           }}
         />
 
