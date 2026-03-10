@@ -37,16 +37,19 @@ const Footer = () => {
 `}>
                     yashasvi prasad
                 </p> */}
-                <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={260}
-                    height={60}
-                    priority
-                    className="invert  mb-8"
 
 
-                />
+                <Link href="/" >
+                    <Image
+                        src="/logo.png"
+                        alt="logo"
+                        width={260}
+                        height={60}
+                        priority
+                        className="invert  mb-8"
+
+
+                    /></Link>
 
                 <p
                     className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
@@ -96,7 +99,7 @@ const Footer = () => {
 
             </div>
 
-        </footer>
+        </footer >
     );
 };
 

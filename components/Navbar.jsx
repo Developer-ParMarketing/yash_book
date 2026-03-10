@@ -26,11 +26,11 @@ const Navbar = () => {
             // dropdown: ["Main Home", "Publisher Home", "Alternating Posts"],
             pointer: "home",
         },
-        // {
-        //     name: "Blogs",
-        //     // dropdown: ["About", "Contact", "Pricing"],
-        //     pointer: 'blogs'
-        // },
+        {
+            name: "Blogs",
+            // dropdown: ["About", "Contact", "Pricing"],
+            pointer: 'blogs'
+        },
         {
             name: "Philosophy",
             // dropdown: ["About", "Contact", "Pricing"],
@@ -89,13 +89,13 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <nav className="
-  hidden lg:flex items-center
-  gap-4 xl:gap-6 2xl:gap-8
-  uppercase
-  text-[13px] xl:text-[14px] 2xl:text-[16px]
-  tracking-[2px] xl:tracking-[3px]
-  min-w-0
-">
+                    hidden lg:flex items-center
+                    gap-4 xl:gap-6 2xl:gap-8
+                    uppercase
+                    text-[13px] xl:text-[14px] 2xl:text-[16px]
+                    tracking-[2px] xl:tracking-[3px]
+                    min-w-0
+                    ">
 
                     {menuItems.map((item, index) => (
                         <div key={item.name} className="relative group flex items-center">
@@ -107,11 +107,11 @@ const Navbar = () => {
 
                             {/* Parent */}
                             <Link href={`/#${item.pointer}`} className="
-  py-4 xl:py-6
-  font-semibold
-  tracking-[2px] xl:tracking-[4px]
-  leading-normal
-">
+                                py-4 xl:py-6
+                                font-semibold
+                                tracking-[2px] xl:tracking-[4px]
+                                leading-normal
+                                ">
                                 {item.name}
                             </Link>
 
