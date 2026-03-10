@@ -111,7 +111,11 @@ exports.createBlog = async (req, res) => {
         const blog = await Blog.create({
             ...req.body,
             slug,
-            faqs
+            faqs,
+            featuredImage: {
+                url: req.body.featuredImage || "",
+                alt: req.body.featuredImageAlt || ""
+            }
         });
 
         res.status(201).json({ blog });
@@ -135,7 +139,8 @@ exports.updateBlog = async (req, res) => {
             req.params.id,
             {
                 ...req.body,
-                faqs
+                faqs,
+                featuredImage: req.body.featuredImage
             },
             { new: true }
         );

@@ -46,7 +46,14 @@ const blogSchema = new mongoose.Schema(
       required: true,
     },
 
-    featuredImage: String,
+    featuredImage: {
+      url: {
+        type: String
+      },
+      alt: {
+        type: String
+      }
+    },
 
     // author: {
     //   type: mongoose.Schema.Types.ObjectId,

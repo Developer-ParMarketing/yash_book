@@ -388,8 +388,9 @@ export default async function Page({ params }) {
                             {blog.featuredImage && (
                                 <div className="w-full mb-10 rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                                     <Image
-                                        src={blog.featuredImage}
-                                        alt={blog.title}
+                                        src={blog.featuredImage.url || "/book1.png"}
+                                        // alt={blog.title}
+                                        alt={blog.featuredImage.alt || blog.title}
                                         width={1200}
                                         height={630}
                                         className="w-full h-auto object-contain"
@@ -453,8 +454,10 @@ export default async function Page({ params }) {
                                         >
                                             <div className="relative w-[68px] h-[68px] rounded-xl overflow-hidden flex-shrink-0 bg-gray-200">
                                                 <Image
-                                                    src={item.featuredImage || "/book1.png"}
-                                                    alt={item.title}
+                                                    src={blog.featuredImage.url || "/book1.png"}
+                                                    // alt={blog.title}
+                                                    alt={blog.featuredImage.alt || blog.title}
+
                                                     fill
                                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                                                 />
@@ -492,8 +495,10 @@ export default async function Page({ params }) {
                                     >
                                         <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200">
                                             <Image
-                                                src={item.featuredImage || "/book1.png"}
-                                                alt={item.title}
+                                                src={blog.featuredImage.url || "/book1.png"}
+                                                // alt={blog.title}
+                                                alt={blog.featuredImage.alt || blog.title}
+
                                                 fill
                                                 className="object-cover"
                                             />

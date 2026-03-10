@@ -129,7 +129,14 @@ function blockMeta(type) {
 }
 
 function ContentBlockBuilder({ blocks, setBlocks }) {
-    const addBlock = (type) => setBlocks((p) => [...p, { id: Date.now(), type, value: "" }]);
+    // const addBlock = (type) => setBlocks((p) => [...p, { id: Date.now(), type, value: "" }]);
+    const addBlock = (type) => {
+        if (type === "img") {
+            setBlocks((p) => [...p, { id: Date.now(), type, value: "", alt: "" }]);
+        } else {
+            setBlocks((p) => [...p, { id: Date.now(), type, value: "" }]);
+        }
+    };
     const updateBlock = (id, value) => setBlocks((p) => p.map((b) => b.id === id ? { ...b, value } : b));
     const removeBlock = (id) => setBlocks((p) => p.filter((b) => b.id !== id));
     const moveBlock = (idx, dir) => {
@@ -190,13 +197,50 @@ function ContentBlockBuilder({ blocks, setBlocks }) {
                             </div>
                         )}
 
-                        {block.type === "img" && (
+                        {/* {block.type === "img" && (
                             <div className="space-y-2">
                                 <input type="text" placeholder="Image URL (https://...)" value={block.value} onChange={(e) => updateBlock(block.id, e.target.value)} className="w-full border p-2 rounded" />
                                 {block.value && (
                                     <img src={block.value} alt="Preview" className="max-h-48 rounded border object-contain"
                                         onError={(e) => (e.target.style.display = "none")}
                                         onLoad={(e) => (e.target.style.display = "block")} />
+                                )}
+                            </div>
+                        )} */}
+
+                        {block.type === "img" && (
+                            <div className="space-y-2">
+
+                                <input
+                                    type="text"
+                                    placeholder="Image URL (https://...)"
+                                    value={block.value}
+                                    onChange={(e) => updateBlock(block.id, e.target.value)}
+                                    className="w-full border p-2 rounded"
+                                />
+
+                                <input
+                                    type="text"
+                                    placeholder="Image ALT text (for SEO & accessibility)"
+                                    value={block.alt || ""}
+                                    onChange={(e) =>
+                                        setBlocks((p) =>
+                                            p.map((b) =>
+                                                b.id === block.id ? { ...b, alt: e.target.value } : b
+                                            )
+                                        )
+                                    }
+                                    className="w-full border p-2 rounded"
+                                />
+
+                                {block.value && (
+                                    <img
+                                        src={block.value}
+                                        alt={block.alt || "Preview"}
+                                        className="max-h-48 rounded border object-contain"
+                                        onError={(e) => (e.target.style.display = "none")}
+                                        onLoad={(e) => (e.target.style.display = "block")}
+                                    />
                                 )}
                             </div>
                         )}
@@ -267,7 +311,8 @@ function blocksToHtml(blocks) {
         if (b.type === "h2") return `<h2>${b.value}</h2>`;
         if (b.type === "h3") return `<h3>${b.value}</h3>`;
         if (b.type === "p") return `<p>${b.value}</p>`;
-        if (b.type === "img") return `<img src="${b.value}" alt="" />`;
+        // if (b.type === "img") return `<img src="${b.value}" alt="" />`;
+        if (b.type === "img") return `<img src="${b.value}" alt="${b.alt || ""}" />`;
         return "";
     }).join("\n");
 }
@@ -300,7 +345,8 @@ function LivePreview({ blocks, faqs }) {
                     if (b.type === "h2") return <h2 key={b.id} style={{ fontSize: "1.5rem", fontWeight: 700, color: "#1a1a1a" }}>{b.value || <em style={{ color: "#ccc", fontSize: "1rem" }}>Empty H2</em>}</h2>;
                     if (b.type === "h3") return <h3 key={b.id} style={{ fontSize: "1.25rem", fontWeight: 600, color: "#1a1a1a" }}>{b.value || <em style={{ color: "#ccc", fontSize: "1rem" }}>Empty H3</em>}</h3>;
                     if (b.type === "p") return <div key={b.id} style={{ color: "#374151", lineHeight: 1.85 }} dangerouslySetInnerHTML={{ __html: b.value || '<em style="color:#ccc">Empty paragraph</em>' }} />;
-                    if (b.type === "img") return b.value ? <img key={b.id} src={b.value} alt="" style={{ maxWidth: "100%", borderRadius: 8, margin: "0.5rem 0" }} /> : <em key={b.id} style={{ color: "#ccc", fontSize: "0.875rem" }}>No image URL</em>;
+                    // if (b.type === "img") return b.value ? <img key={b.id} src={b.value} alt="" style={{ maxWidth: "100%", borderRadius: 8, margin: "0.5rem 0" }} /> : <em key={b.id} style={{ color: "#ccc", fontSize: "0.875rem" }}>No image URL</em>;
+                    if (b.type === "img") return b.value ? <img key={b.id} src={b.value} alt={b.alt || "Blog image"} style={{ maxWidth: "100%", borderRadius: 8, margin: "0.5rem 0" }} /> : <em key={b.id} style={{ color: "#ccc", fontSize: "0.875rem" }}>No image URL</em>;
                     return null;
                 })}
                 {faqs.length > 0 && (
@@ -339,7 +385,7 @@ export default function CreateBlogPage() {
     const [excerpt, setExcerpt] = useState("");
 
     const [formData, setFormData] = useState({
-        title: "", slug: "", featuredImage: "",
+        title: "", slug: "", featuredImage: "", featuredImageAlt: "",
         categories: "", tags: "", published: false,
         metaTitle: "", metaDescription: "", metaKeywords: "",
         ogTitle: "", ogDescription: "", ogImage: "", canonicalUrl: "",
@@ -432,7 +478,20 @@ export default function CreateBlogPage() {
                             />
                         </div>
 
-                        <input name="featuredImage" placeholder="Featured Image URL" className="w-full border p-2 rounded" onChange={handleChange} />
+                        <input
+                            name="featuredImage"
+                            placeholder="Featured Image URL"
+                            className="w-full border p-2 rounded"
+                            onChange={handleChange}
+                        />
+
+                        <input
+                            name="featuredImageAlt"
+                            placeholder="Featured Image ALT text (SEO)"
+                            className="w-full border p-2 rounded"
+                            onChange={handleChange}
+                        />
+
                         <input name="categories" placeholder="Categories (comma separated)" className="w-full border p-2 rounded" onChange={handleChange} />
                         <input name="tags" placeholder="Tags (comma separated)" className="w-full border p-2 rounded" onChange={handleChange} />
                         <label className="flex items-center space-x-2">

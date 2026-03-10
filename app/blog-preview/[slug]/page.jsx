@@ -335,8 +335,9 @@ export default function Page() {
                         {blog.featuredImage && (
                             <div className="w-full mb-10 rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                                 <Image
-                                    src={blog.featuredImage}
-                                    alt={blog.title}
+                                    src={blog.featuredImage.url}
+                                    // alt={blog.title}
+                                    alt={blog.featuredImage.alt || blog.title}
                                     width={1200}
                                     height={800}
                                     className="w-full h-auto object-contain"
@@ -383,8 +384,10 @@ export default function Page() {
                                     >
                                         <div className="relative w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-gray-200">
                                             <Image
-                                                src={item.featuredImage || "/book1.png"}
-                                                alt={item.title}
+                                                // src={item.featuredImage || "/book1.png"}
+                                                src={blog.featuredImage.url || "/book1.png"}
+                                                // alt={blog.title}
+                                                alt={blog.featuredImage.alt || blog.title}
                                                 fill
                                                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                                             />
@@ -422,8 +425,9 @@ export default function Page() {
                                 >
                                     <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200">
                                         <Image
-                                            src={item.featuredImage || "/book1.png"}
-                                            alt={item.title}
+                                            src={blog.featuredImage.url || "/book1.png"}
+                                            // alt={blog.title}
+                                            alt={blog.featuredImage.alt || blog.title}
                                             fill
                                             className="object-cover"
                                         />

@@ -36,7 +36,9 @@ export default function EditBlogPage() {
                         slug: data.blog.slug || "",
                         excerpt: data.blog.excerpt || "",
                         content: data.blog.content || "",
-                        featuredImage: data.blog.featuredImage || "",
+                        // featuredImage: data.blog.featuredImage || "",
+                        featuredImageUrl: data.blog.featuredImage?.url || "",
+                        featuredImageAlt: data.blog.featuredImage?.alt || "",
                         author: data.blog.author || "",
                         categories: data.blog.categories?.join(", ") || "",
                         tags: data.blog.tags?.join(", ") || "",
@@ -189,7 +191,10 @@ export default function EditBlogPage() {
                 body: JSON.stringify({
 
                     ...formData,
-
+                    featuredImage: {
+                        url: formData.featuredImageUrl,
+                        alt: formData.featuredImageAlt
+                    },
                     faqs: faqs.filter(
                         faq => faq.question.trim() !== "" && faq.answer.trim() !== ""
                     ),
@@ -288,18 +293,26 @@ export default function EditBlogPage() {
                     </label>
 
                     <input
-                        name="featuredImage"
-                        value={formData.featuredImage}
+                        name="featuredImageUrl"
+                        value={formData.featuredImageUrl}
                         onChange={handleChange}
-                        placeholder="Enter image URL"
+                        placeholder="Featured Image URL"
                         className="w-full border p-2 rounded"
+                    />
+
+                    <input
+                        name="featuredImageAlt"
+                        value={formData.featuredImageAlt}
+                        onChange={handleChange}
+                        placeholder="Image ALT text (SEO)"
+                        className="w-full border p-2 rounded mt-2"
                     />
 
                     {formData.featuredImage && (
 
                         <img
-                            src={formData.featuredImage}
-                            alt="Preview"
+                            src={formData.featuredImageUrl}
+                            alt={formData.featuredImageAlt || formData.title}
                             className="mt-4 w-full h-60 object-cover rounded"
                         />
 

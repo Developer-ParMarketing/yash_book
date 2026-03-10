@@ -105,10 +105,12 @@ const Blogs = () => {
                                 <div className="group cursor-pointer">
                                     <div className="overflow-hidden">
                                         <Image
-                                            src={blog.featuredImage ? blog.featuredImage : '/book1.png'}
+                                            src={blog.featuredImage.url || "/book1.png"}
+                                            // alt={blog.title}
+                                            alt={blog.featuredImage.alt || blog.title}
                                             width={500}
                                             height={400}
-                                            alt={blog.title}
+
                                             className="w-full h-[300px] object-contain bg-gray-100 group-hover:scale-105 transition duration-500"
                                         />
                                     </div>

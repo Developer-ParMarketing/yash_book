@@ -95,7 +95,47 @@ export default function RootLayout({ children }) {
   })(window,document,'script','dataLayer','GTM-5QVB7WKM');
 `}
         </Script>
+        <Script
+          id="schema-ld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          {
+          "@context":"https://schema.org",
+          "@graph":[
+          {
+          "@type":"Person",
+          "@id":"https://yashasviprasad.com/#person",
+          "name":"Yashasvi Prasad",
+          "url":"https://yashasviprasad.com/",
+          "jobTitle":"Author",
+          "description":"Yashasvi Prasad is an author exploring decision-making, judgment, and the hidden costs of staying in situations that no longer evolve.",
+          "sameAs":[
+          "https://www.instagram.com/whenstayingstopsmakingsense/",
+          "https://www.linkedin.com/in/yashasvi-prasad/",
+          "https://www.facebook.com/people/Whenstayingstopsmakingsense/61587945454452/",
+          "https://medium.com/@yashasvi_prasad",
+          "https://www.amazon.in/stores/author/B0GLXHF8WP",
+          "https://www.goodreads.com/author/show/68429243.Yashasvi_Prasad"
+          ]
+          },
 
+          {
+          "@type":"WebSite",
+          "@id":"https://yashasviprasad.com/#website",
+          "url":"https://yashasviprasad.com/",
+          "name":"Yashasvi Prasad",
+          "inLanguage":"en",
+          "publisher":{
+          "@id":"https://yashasviprasad.com/#person"
+          }
+          }
+          ]
+          }
+          `,
+          }}
+        />
 
         <Navbar />
         {children}
