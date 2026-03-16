@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Cinzel, Playfair_Display } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Playfair_Display } from "next/font/google";
 
 const cinzel = Cinzel({
     subsets: ["latin"],
@@ -12,6 +12,11 @@ const cinzel = Cinzel({
 const playfair = Playfair_Display({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
 });
 
 export default function AboutSection() {
@@ -109,16 +114,16 @@ export default function AboutSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className={`${cinzel.className} order-2 md:order-1 w-full`}
+                    className={`${cormorant.className} order-2 md:order-1 w-full`}
                 >
 
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6 tracking-wide">
+                    <h1 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl font-serif mb-6 tracking-wide`}>
                         I am Yashasvi Prasad
                     </h1>
 
-                    <p className="text-gray-700 leading-relaxed text-justify max-w-xl space-y-4">
+                    <p className=" leading-relaxed text-justify max-w-xl space-y-4">
 
-                        writes about decision-making, judgment, and the hidden costs of staying too long in situations that no longer evolve. His work focuses on how people evaluate choices under pressure, when risk, identity, financial constraint, and social expectation intersect.
+                        Writes about decision-making, judgment, and the hidden costs of staying too long in situations that no longer evolve. His work focuses on how people evaluate choices under pressure, when risk, identity, financial constraint, and social expectation intersect.
 
                         <br /><br />
 
@@ -165,14 +170,14 @@ export default function AboutSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className={`${cinzel.className} order-1 md:order-2 w-full`}
+                    className={`${cormorant.className} order-1 md:order-2 w-full`}
                 >
 
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6 tracking-wide">
+                    <h1 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl font-serif mb-6 tracking-wide`}>
                         The Book
                     </h1>
 
-                    <p className="text-gray-700 leading-relaxed text-justify max-w-xl space-y-4">
+                    <p className=" leading-relaxed text-justify max-w-xl space-y-4">
 
                         Staying isn’t always strength. Sometimes it’s avoidance. <br />
                         When Staying Stops Making Sense is a clear, grounded guide for people who feel stuck in careers, roles, or situations they can no longer justify but are afraid to leave. Drawing on decision-making psychology and real-world reasoning, the book helps readers distinguish between patience and inertia, resilience and self-betrayal. <br />

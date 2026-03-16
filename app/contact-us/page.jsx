@@ -4,6 +4,13 @@ import Image from "next/image";
 import { useState } from "react";
 import { api } from "../variables";
 
+import { Cinzel, Cormorant_Garamond, Playfair_Display } from "next/font/google";
+
+const cinzel = Cinzel({
+    subsets: ["latin"],
+    weight: ["400", "500"],
+});
+
 export default function ContactSection() {
 
     const [form, setForm] = useState({
@@ -43,7 +50,8 @@ export default function ContactSection() {
                 <div>
 
 
-                    <h2 className="text-4xl md:text-5xl font-serif mb-8">
+
+                    <h2 className={`${cinzel.className} text-4xl md:text-5xl font-serif mb-8`}>
                         SEND US A MESSAGE
                     </h2>
 
