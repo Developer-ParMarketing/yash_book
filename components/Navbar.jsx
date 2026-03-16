@@ -41,11 +41,11 @@ const Navbar = () => {
 
             pointer: 'Philosophy'
         },
-        {
-            name: "The Book",
+        // {
+        //     name: "The Book",
 
-            pointer: 'The_Book'
-        },
+        //     pointer: 'The_Book'
+        // },
         {
             name: "Key Ideas",
 
@@ -57,7 +57,7 @@ const Navbar = () => {
             pointer: 'Buy_the_Book'
         },
         {
-            name: "contact us",
+            name: "contact",
 
             pointer: 'contact-us'
         },
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <nav
                     className="
                         hidden lg:flex items-center
-                        gap-2 xl:gap-4 2xl:gap-6
+                        gap-2 xl:gap-4 2xl:gap-3
                         uppercase
                         text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px]
                         tracking-[1px] lg:tracking-[2px] xl:tracking-[3px]
