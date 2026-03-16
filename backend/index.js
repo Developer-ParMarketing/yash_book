@@ -4,22 +4,23 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const auth = require("./routes/auth");
 const blogRoutes = require("./routes/blogRoutes");
+const contactRoute = require("./routes/contactRoute");
 
 const app = express();
 
 app.set("trust proxy", 1);
 
 const allowedOrigins = [
-    "http://localhost:3000",           // local dev
-    "http://yashasviprasad.com",      // insecure live frontend
+    "http://localhost:3000",
+    "http://yashasviprasad.com",
     "https://yashasviprasad.com",
-    "https://www.yashasviprasad.com"     // secure live frontend
+    "https://www.yashasviprasad.com"
 ];
 
 app.use(
     cors({
         origin: function (origin, callback) {
-            if (!origin) return callback(null, true); // allow Postman or server-to-server requests
+            if (!origin) return callback(null, true);
             if (allowedOrigins.indexOf(origin) === -1) {
                 return callback(new Error("Not allowed by CORS"), false);
             }
@@ -38,6 +39,7 @@ mongoose
 
 app.use("/api", auth);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/contact", contactRoute);
 
 const PORT = process.env.PORT || 8018;
 

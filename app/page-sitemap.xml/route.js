@@ -11,6 +11,8 @@ export async function GET() {
         "/#The_Book",
         "/#Key_Ideas",
         "/#Buy_the_Book",
+        "/about-me",
+        "/contact-us"
     ];
 
     const urls = pages

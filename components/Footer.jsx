@@ -90,13 +90,22 @@ const Footer = () => {
             </div>
 
             <div
-                className={` border-[#1a1a1a] flex flex-col md:flex-row justify-between items-center px-7.5 py-9.5 text-[18px] font-medium  ${cormorant.className}`}
+                className={`border-[#1a1a1a] flex flex-col md:flex-row justify-between items-center px-7.5 py-9.5 text-[18px] font-medium ${cormorant.className}`}
             >
                 <p>Written with heart</p>
+                <p className="md:-mr-20">
+
+
+                    <a
+                        href="mailto:hello@yashasviprasad.com"
+                        className="hover:underline"
+                    >
+                        hello@yashasviprasad.com
+                    </a>
+                </p>
                 <p>
                     Copyright {new Date().getFullYear()} © yashasvi prasad
                 </p>
-
             </div>
 
         </footer >

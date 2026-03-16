@@ -23,33 +23,43 @@ const Navbar = () => {
     const menuItems = [
         {
             name: "home",
-            // dropdown: ["Main Home", "Publisher Home", "Alternating Posts"],
+
             pointer: "home",
         },
         {
+            name: "about me",
+
+            pointer: "about-me",
+        },
+        {
             name: "Blogs",
-            // dropdown: ["About", "Contact", "Pricing"],
+
             pointer: 'blogs'
         },
         {
             name: "Philosophy",
-            // dropdown: ["About", "Contact", "Pricing"],
+
             pointer: 'Philosophy'
         },
         {
             name: "The Book",
-            // dropdown: ["Grid", "Masonry", "Sidebar"],
+
             pointer: 'The_Book'
         },
         {
             name: "Key Ideas",
-            // dropdown: ["Products", "Cart", "Checkout"],
+
             pointer: 'Key_Ideas'
         },
         {
             name: "Buy the Book",
-            // dropdown: ["Landing 1", "Landing 2"],
+
             pointer: 'Buy_the_Book'
+        },
+        {
+            name: "contact us",
+
+            pointer: 'contact-us'
         },
     ];
 
@@ -72,30 +82,20 @@ const Navbar = () => {
 
                     />
 
-                    {/* <p className={`
-                        ${cormorant.className} 
-                        text-2xl sm:text-2xl md:text-3xl lg:text-4xl 
-                        leading-tight 
-                        text-black 
-                        uppercase 
-                        font-semibold 
-                        m-0
-                        whitespace-nowrap
-                    `}>
-                        yashasvi prasad
-                    </p> */}
+
 
                 </Link>
 
                 {/* Desktop Menu */}
-                <nav className="
-                    hidden lg:flex items-center
-                    gap-4 xl:gap-6 2xl:gap-8
-                    uppercase
-                    text-[13px] xl:text-[14px] 2xl:text-[16px]
-                    tracking-[2px] xl:tracking-[3px]
-                    min-w-0
-                    ">
+                <nav
+                    className="
+                        hidden lg:flex items-center
+                        gap-2 xl:gap-4 2xl:gap-6
+                        uppercase
+                        text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px]
+                        tracking-[1px] lg:tracking-[2px] xl:tracking-[3px]
+                        min-w-0
+                        ">
 
                     {menuItems.map((item, index) => (
                         <div key={item.name} className="relative group flex items-center">
@@ -106,63 +106,27 @@ const Navbar = () => {
                             )}
 
                             {/* Parent */}
-                            <Link href={`/#${item.pointer}`} className="
+                            <Link
+                                href={
+                                    item.pointer === "about-me" || item.pointer === "contact-us"
+                                        ? `/${item.pointer}`
+                                        : `/#${item.pointer}`
+                                }
+                                className="
                                 py-4 xl:py-6
                                 font-semibold
                                 tracking-[2px] xl:tracking-[4px]
                                 leading-normal
-                                ">
+                            "
+                            >
                                 {item.name}
                             </Link>
 
 
-                            {/* Dropdown */}
-                            {/* <div
-                                className="
-                absolute left-0 top-full w-60 bg-white border border-[#e5e2d8]
-                shadow-[0_10px_25px_rgba(0,0,0,0.08)]
-                opacity-0 invisible
-                group-hover:opacity-100 group-hover:visible
-                transition-all duration-300 z-50
-              "
-                            >
-                                <ul className="py-4 normal-case text-[14px]">
-                                    {item.dropdown.map((sub) => (
-                                        <li key={sub}>
-                                            <Link
-                                                href="#"
-                                                className="block px-6 py-2 hover:bg-[#f5f4ef]"
-                                            >
-                                                {sub}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div> */}
                         </div>
                     ))}
 
-                    {/* Desktop Hamburger */}
-                    {/* <button className="ml-4 cursor-pointer">
-                      
-                        <div className="group flex flex-col gap-1.5 cursor-pointer items-end w-8">
 
-                           
-                            <span className="h-0.5 w-full bg-black transition-all duration-300 group-hover:w-5"></span>
-
-                           
-                            <span className="h-0.5 w-5 bg-black transition-all duration-300 group-hover:w-full"></span>
-
-                           
-                            <span className="h-0.5 w-6 bg-black transition-all duration-300 group-hover:w-full"></span>
-
-                            
-                            <span className="h-0.5 w-full bg-black transition-all duration-300 group-hover:w-6"></span>
-
-                        </div>
-
-
-                    </button> */}
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -181,7 +145,11 @@ const Navbar = () => {
                         {menuItems.map((item) => (
                             <Link
                                 key={item.name}
-                                href={`/#${item.pointer}`}
+                                href={
+                                    item.pointer === "about-me" || item.pointer === "contact-us"
+                                        ? `/${item.pointer}`
+                                        : `/#${item.pointer}`
+                                }
                                 onClick={() => setMobileOpen(false)}
                                 className="py-3 border-b font-semibold"
                             >
