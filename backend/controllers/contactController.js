@@ -1,4 +1,6 @@
 const Contact = require("../model/ContactSchema");
+const nodemailer = require("nodemailer");
+
 
 // CREATE MESSAGE
 const createContact = async (req, res) => {
@@ -12,7 +14,36 @@ const createContact = async (req, res) => {
             });
         }
 
+
         const contact = await Contact.create({ name, email, message });
+
+
+        const transporter = nodemailer.createTransport({
+            host: "smtp.hostinger.com",
+            port: 465,
+            secure: true,
+            auth: {
+                user: "hello@yashasviprasad.com",
+                pass: "Yash@321#",
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        });
+
+
+        await transporter.sendMail({
+            from: `"Contact Form" <hello@yashasviprasad.com>`,
+            to: "hello@yashasviprasad.com",
+            replyTo: email,
+            subject: `New Contact from ${name}`,
+            html: `
+                <h3>New Message</h3>
+                <p><b>Name:</b> ${name}</p>
+                <p><b>Email:</b> ${email}</p>
+                <p><b>Message:</b> ${message}</p>
+            `,
+        });
 
         res.status(201).json({
             success: true,
@@ -21,12 +52,15 @@ const createContact = async (req, res) => {
         });
 
     } catch (error) {
+        console.log(" EMAIL ERROR:", error);
+
         res.status(500).json({
             success: false,
             message: error.message,
         });
     }
 };
+
 
 
 // GET ALL CONTACT MESSAGES

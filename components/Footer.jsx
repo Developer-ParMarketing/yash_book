@@ -56,7 +56,7 @@ const Footer = () => {
                 >
                     Leaving is not giving up; it is choosing to keep going, differently. Reclaim your judgment from the moral pressure of automatic persistence.
 
-                    all the stories that truly matter.
+
                 </p>
 
                 <div

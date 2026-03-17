@@ -60,10 +60,10 @@ export default function AboutSection() {
                         className="relative w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] rounded-full overflow-hidden z-10"
                     >
                         <Image
-                            src="/YP-Profile.png"
+                            src="/YashProfile.png"
                             alt="Yashasvi Prasad"
                             fill
-                            className="object-cover "
+                            className="object-contain"
                         />
                     </motion.div>
 

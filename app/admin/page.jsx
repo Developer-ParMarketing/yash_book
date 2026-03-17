@@ -194,7 +194,7 @@ export default function AdminPage() {
             <div className="mt-16">
                 <h2 className="text-2xl font-bold mb-6">Contact Messages</h2>
 
-                <div className="overflow-x-auto bg-white border border-gray-200 rounded-lg">
+                <div className="h-[400px] overflow-y-auto overflow-x-auto bg-white border border-gray-200 rounded-lg">
                     <table className="w-full min-w-[700px] text-left">
                         <thead className="bg-gray-100 text-sm uppercase">
                             <tr>
