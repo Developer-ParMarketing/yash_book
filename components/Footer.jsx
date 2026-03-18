@@ -39,10 +39,10 @@ const Footer = () => {
                 </p> */}
 
                 <p
-                    className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
+                    className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium italic`}
                 >
 
-                    " Leaving is not giving up; it is choosing to keep going, differently. "
+                    "Leaving is not giving up; it is choosing to keep going, differently."
                 </p>
                 <Link href="/" >
                     <Image
