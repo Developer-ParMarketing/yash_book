@@ -141,53 +141,11 @@ export default function AboutSection() {
 
 
 
+            <div className="max-w-7xl mx-auto mt-9  items-center">
 
-            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 md:gap-16 items-center md:py-8">
-
-                {/* IMAGE SIDE */}
-                <motion.div
-                    variants={fadeRight}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="relative order-1 md:order-2 flex justify-center py-10 md:py-16"
-                >
-
-                    <Image
-                        src="/book1.png"
-                        // alt={blog.title}
-                        alt='book'
-                        width={500}
-                        height={400}
-
-                        className="w-full  object-contain  group-hover:scale-105 transition duration-500"
-                    />
-                </motion.div>
-
-                {/* TEXT SIDE */}
-                <motion.div
-                    variants={fadeLeft}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className={`${cormorant.className} order-1 md:order-2 w-full`}
-                >
-
-                    <h1 className={`${cinzel.className} text-center md:text-left text-3xl sm:text-4xl md:text-5xl font-serif mb-6 tracking-wide`}>
-                        The Book
-                    </h1>
-
-                    <p className=" leading-relaxed text-justify max-w-xl space-y-4">
-
-                        <span className="text-xl font-bold">Staying isn’t always strength. Sometimes it’s avoidance.</span> <br />
-                        When Staying Stops Making Sense is a clear, grounded guide for people who feel stuck in careers, roles, or situations they can no longer justify but are afraid to leave. Drawing on decision-making psychology and real-world reasoning, the book helps readers distinguish between patience and inertia, resilience and self-betrayal. <br />
-                        Rather than offering motivational slogans, it provides a practical framework for making decisions under uncertainty, recognising burnout, and understanding when quitting is not failure but strategy. <br />
-                        This book is for thoughtful professionals who don’t want permission, drama, or regret, just clarity.
-
-                    </p>
-
-                </motion.div>
-
+                <p className={`${cormorant.className} leading-relaxed text-center  space-y-4`}>
+                    <span className="font-bold">Focused on Pattern Recognition</span> Yashasvi Prasad is a careful observer of the quiet hesitations and unseen constraints that shape our most difficult decisions. Rather than offering prescriptive advice, his work illuminates the hidden patterns of human behavior, providing readers with the structural clarity to navigate their choices without guilt or self-betrayal.
+                </p>
             </div>
         </section>
     );

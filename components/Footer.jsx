@@ -38,7 +38,12 @@ const Footer = () => {
                     yashasvi prasad
                 </p> */}
 
+                <p
+                    className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
+                >
 
+                    " Leaving is not giving up; it is choosing to keep going, differently. "
+                </p>
                 <Link href="/" >
                     <Image
                         src="/logo.png"
@@ -54,7 +59,7 @@ const Footer = () => {
                 <p
                     className={`max-w-130 text-[28px] leading-[1.6em] text-[#cfcfcf] mb-7.5 ${cormorant.className} font-medium`}
                 >
-                    Leaving is not giving up; it is choosing to keep going, differently. Reclaim your judgment from the moral pressure of automatic persistence.
+                    Reclaim your judgment from the moral pressure of automatic persistence.
 
 
                 </p>
