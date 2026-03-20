@@ -110,7 +110,14 @@ export default function ContactSection() {
                                 country={"in"}
                                 value={form.phone}
                                 onChange={(phone) => setForm({ ...form, phone })}
-                                inputStyle={{ width: "100%" }}
+
+                                containerClass="w-full"
+
+                                inputClass="!w-full !bg-transparent !border-0 !border-b !border-gray-400 !rounded-none !py-2 !pl-12 !text-black focus:!outline-none focus:!shadow-none"
+
+                                buttonClass="!bg-transparent !border-0"
+
+                                dropdownClass="!text-black"
                             />
 
 
