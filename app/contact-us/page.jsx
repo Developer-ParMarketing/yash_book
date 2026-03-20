@@ -18,6 +18,7 @@ export default function ContactSection() {
         email: "",
         message: ""
     });
+    const [success, setSuccess] = useState(false);
 
 
     const handleChange = (e) => {
@@ -27,21 +28,31 @@ export default function ContactSection() {
         });
     };
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await fetch(`${api}/contact`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(form)
-        });
+        try {
+            await fetch(`${api}/contact`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            });
 
-        alert("Message sent!");
-        setForm({ name: "", email: "", message: "" });
+            setSuccess(true);
+
+            setTimeout(() => {
+                setSuccess(false);
+            }, 3000);
+            setForm({ name: "", email: "", message: "" });
+
+        } catch (error) {
+            console.error(error);
+        }
     };
-
     return (
         <section className="w-full bg-[#efede7] py-20">
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 items-center">
@@ -98,6 +109,13 @@ export default function ContactSection() {
                         >
                             SUBMIT
                         </button>
+
+
+                        {success && (
+                            <p className="text-green-600 mt-4 text-sm tracking-wide">
+                                Thanks for your message!
+                            </p>
+                        )}
 
                     </form>
 
