@@ -37,7 +37,7 @@ export default function AboutSection() {
     };
 
     return (
-        <section className="w-full bg-[#e8e6df] py-16 overflow-hidden">
+        <section className="w-full bg-[#f9f8f4] py-16 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
                 {/* IMAGE SIDE */}
