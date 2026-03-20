@@ -47,11 +47,11 @@ export default function ContactSection() {
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 items-center">
 
                 {/* LEFT SIDE FORM */}
-                <div>
+                <div className="md:order-1 order-2">
 
 
 
-                    <h2 className={`${cinzel.className} text-4xl md:text-5xl font-serif mb-8`}>
+                    <h2 className={`${cinzel.className} text-4xl md:text-5xl font-serif mb-8 text-center md:text-left`}>
                         SEND ME A MESSAGE
                     </h2>
 
@@ -104,14 +104,17 @@ export default function ContactSection() {
                 </div>
 
                 {/* RIGHT SIDE IMAGE */}
-                <div className="relative flex justify-center">
+                <div className="relative flex justify-center md:order-2 order-1">
 
-                    <Image
-                        src="/book1.png"
-                        alt="book"
+                    <video
+                        src="/contactvideo.mp4"
                         width={500}
                         height={500}
                         className="object-contain"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                     />
 
                 </div>

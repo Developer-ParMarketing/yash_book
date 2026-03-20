@@ -141,12 +141,23 @@ export default function AboutSection() {
 
 
 
-            <div className="max-w-7xl mx-auto mt-9  items-center">
+            <div className="max-w-7xl mx-auto mt-12 px-5 sm:px-6 md:px-10 flex flex-col items-center">
 
-                <p className={`${cormorant.className} leading-relaxed text-center  space-y-4`}>
-                    <span className="font-bold">Focused on Pattern Recognition</span> Yashasvi Prasad is a careful observer of the quiet hesitations and unseen constraints that shape our most difficult decisions. Rather than offering prescriptive advice, his work illuminates the hidden patterns of human behavior, providing readers with the structural clarity to navigate their choices without guilt or self-betrayal.
+                <h1
+                    className={`${cinzel.className} text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-4 md:mb-6 tracking-wide`}
+                >
+                    Focused on Pattern Recognition
+                </h1>
+
+                <p
+                    className={`${cormorant.className} leading-relaxed text-sm sm:text-base md:text-lg text-justify `}
+                >
+                    Yashasvi Prasad is a careful observer of the quiet hesitations and unseen constraints that shape our most difficult decisions. Rather than offering prescriptive advice, his work illuminates the hidden patterns of human behavior, providing readers with the structural clarity to navigate their choices without guilt or self-betrayal.
                 </p>
+
             </div>
+
+
         </section>
     );
 }
