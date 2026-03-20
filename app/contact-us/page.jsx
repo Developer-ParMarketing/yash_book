@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { api } from "../variables";
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { Cinzel, Cormorant_Garamond, Playfair_Display } from "next/font/google";
 
 const cinzel = Cinzel({
@@ -16,6 +17,7 @@ export default function ContactSection() {
     const [form, setForm] = useState({
         name: "",
         email: "",
+        phone: "",
         message: ""
     });
     const [success, setSuccess] = useState(false);
@@ -91,6 +93,9 @@ export default function ContactSection() {
                                 required
                             />
 
+
+
+
                             <input
                                 type="text"
                                 name="name"
@@ -100,6 +105,14 @@ export default function ContactSection() {
                                 className="border-b border-gray-400 bg-transparent outline-none py-2"
                                 required
                             />
+
+                            <PhoneInput
+                                country={"in"}
+                                value={form.phone}
+                                onChange={(phone) => setForm({ ...form, phone })}
+                                inputStyle={{ width: "100%" }}
+                            />
+
 
                         </div>
 

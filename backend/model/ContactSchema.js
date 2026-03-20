@@ -20,7 +20,12 @@ const ContactSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+
+    phone: {
+        type: String,
+        required: true
+    },
 
 });
 

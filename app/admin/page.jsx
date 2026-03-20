@@ -201,6 +201,7 @@ export default function AdminPage() {
 
                                 <th className="p-3">Name</th>
                                 <th className="p-3">Email</th>
+                                <th className="p-3">Phone No</th>
                                 <th className="p-3">Message</th>
                                 <th className="p-3">Date</th>
                             </tr>
@@ -228,6 +229,13 @@ export default function AdminPage() {
                                         <td className="p-3 text-blue-600">
                                             <a href={`mailto:${msg.email}`}>
                                                 {msg.email}
+                                            </a>
+                                        </td>
+
+                                        {/* phone */}
+                                        <td className="p-3 text-blue-600">
+                                            <a href={`tel:${msg.phone.startsWith("+") ? msg.phone : `+${msg.phone}`}`}>
+                                                {msg.phone.startsWith("+") ? msg.phone : `+${msg.phone}`}
                                             </a>
                                         </td>
 

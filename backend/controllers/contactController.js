@@ -5,17 +5,16 @@ const nodemailer = require("nodemailer");
 // CREATE MESSAGE
 const createContact = async (req, res) => {
     try {
-        const { name, email, message } = req.body;
+        const { name, email, phone, message } = req.body;
 
-        if (!name || !email || !message) {
+        if (!name || !email || !phone || !message) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required",
             });
         }
 
-
-        const contact = await Contact.create({ name, email, message });
+        const contact = await Contact.create({ name, email, message, phone });
 
 
         const transporter = nodemailer.createTransport({
@@ -42,6 +41,7 @@ const createContact = async (req, res) => {
                 <p><b>Name:</b> ${name}</p>
                 <p><b>Email:</b> ${email}</p>
                 <p><b>Message:</b> ${message}</p>
+                  <p><b>Phone:</b> ${phone}</p>
             `,
         });
 
