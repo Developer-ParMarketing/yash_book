@@ -107,15 +107,16 @@ export default function ContactSection() {
                 <div className="relative flex justify-center md:order-2 order-1">
 
                     <video
-                        src="/contactvideo.mp4"
-                        width={500}
-                        height={500}
-                        className="object-contain"
                         autoPlay
                         loop
                         muted
                         playsInline
-                    />
+                        className="object-contain"
+                        width={500}
+                        height={500}
+                    >
+                        <source src="/contactvideo.mp4" type="video/mp4" />
+                    </video>
 
                 </div>
 
