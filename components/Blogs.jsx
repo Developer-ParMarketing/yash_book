@@ -41,7 +41,7 @@ const Blogs = () => {
     if (loading) return <div className="p-10 text-center">Loading blogs...</div>;
 
     return (
-        <section id="blogs" className="bg-[#f5f3ee] py-20 px-6 relative">
+        <section id="Blogs" className="bg-[#f5f3ee] py-20 px-6 relative">
             <div className="max-w-7xl mx-auto relative">
 
 

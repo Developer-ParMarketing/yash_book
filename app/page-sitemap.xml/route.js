@@ -6,7 +6,7 @@ export async function GET() {
     const pages = [
         "",
         "/#home",
-        "/#blogs",
+        "/#Blogs",
         "/#Philosophy",
         "/#The_Book",
         "/#Key_Ideas",

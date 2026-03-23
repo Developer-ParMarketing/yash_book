@@ -34,7 +34,7 @@ const Navbar = () => {
         {
             name: "Blogs",
 
-            pointer: 'blogs'
+            pointer: 'Blogs'
         },
         {
             name: "Philosophy",
