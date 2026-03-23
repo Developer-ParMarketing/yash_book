@@ -32,14 +32,14 @@ const Navbar = () => {
             pointer: "about-me",
         },
         {
-            name: "Blogs",
+            name: "blogs",
 
-            pointer: 'Blogs'
+            pointer: 'blogs'
         },
         {
-            name: "Philosophy",
+            name: "philosophy",
 
-            pointer: 'Philosophy'
+            pointer: 'philosophy'
         },
         // {
         //     name: "The Book",
@@ -47,14 +47,14 @@ const Navbar = () => {
         //     pointer: 'The_Book'
         // },
         {
-            name: "Key Ideas",
+            name: "key ideas",
 
-            pointer: 'Key_Ideas'
+            pointer: 'key-ideas'
         },
         {
-            name: "Buy the Book",
+            name: "buy the book",
 
-            pointer: 'Buy_the_Book'
+            pointer: 'buy-the-book'
         },
         {
             name: "contact",

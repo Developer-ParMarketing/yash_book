@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 
 const Buybook = () => {
     return (
-        <section id="Buy_the_Book" className="w-full bg-[#f9e9d1] py-16 px-6 md:px-14 lg:px-20">
+        <section id="buy-the-book" className="w-full bg-[#f9e9d1] py-16 px-6 md:px-14 lg:px-20">
 
             <div className="max-w-7xl xl:max-w-[1400px] mx-auto">
 
