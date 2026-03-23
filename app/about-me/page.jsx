@@ -148,11 +148,13 @@ export default function AboutSection() {
                 <p
 
                 >
-                    <span
+                    {/* <span
                         className={`${cormorant.className} leading-relaxed text-sm sm:text-base md:text-lg text-justify font-bold`}
                     >
                         Focused on Pattern Recognition
-                    </span> <span className={`${cormorant.className} leading-relaxed text-sm sm:text-base md:text-lg text-justify `}>
+                    </span>  */}
+
+                    <span className={`${cormorant.className} leading-relaxed text-sm sm:text-base md:text-lg text-justify `}>
                         Yashasvi Prasad is a careful observer of the quiet hesitations and unseen constraints that shape our most difficult decisions. Rather than offering prescriptive advice, his work illuminates the hidden patterns of human behavior, providing readers with the structural clarity to navigate their choices without guilt or self-betrayal.
                     </span>
                 </p>
