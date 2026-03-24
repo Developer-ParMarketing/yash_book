@@ -6,11 +6,11 @@ export async function GET() {
     const pages = [
         "",
         "/#home",
-        "/#Blogs",
-        "/#Philosophy",
-        "/#The_Book",
-        "/#Key_Ideas",
-        "/#Buy_the_Book",
+        "/#blogs",
+        "/#philosophy",
+        // "/#The_Book",
+        "/#key-ideas",
+        "/#buy-the-book",
         "/about-me",
         "/contact-us"
     ];
