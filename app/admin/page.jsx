@@ -97,6 +97,12 @@ export default function AdminPage() {
                 <h1 className="text-2xl md:text-3xl font-bold">Blog Dashboard</h1>
 
                 <button
+                    onClick={() => router.push("/admin/create-glossary")}
+                    className="bg-black text-white px-4 md:px-5 py-2 rounded hover:bg-gray-800 transition"
+                >
+                    + Create Glossary
+                </button>
+                <button
                     onClick={() => router.push("/admin/create")}
                     className="bg-black text-white px-4 md:px-5 py-2 rounded hover:bg-gray-800 transition"
                 >

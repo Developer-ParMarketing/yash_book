@@ -28,7 +28,7 @@ const Hero = () => {
 
                         <Image
                             src="/YashProfile.png"
-                            alt="hero"
+                            alt="Black and white portrait of author Yashasvi Prasad looking thoughtfully with an open book when staying stop making sense"
                             width={900}
                             height={600}
                             priority

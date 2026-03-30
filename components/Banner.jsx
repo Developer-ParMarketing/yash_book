@@ -22,7 +22,7 @@ const Banner = () => {
                 <div className="w-full flex justify-center md:justify-start">
                     <img
                         src="book1.png"
-                        alt="Writing Expo"
+                        alt="When Staying Stops Making Sense Book Cover"
                         className="
              w-auto
               sm:w-70

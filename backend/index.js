@@ -5,6 +5,7 @@ const cors = require("cors");
 const auth = require("./routes/auth");
 const blogRoutes = require("./routes/blogRoutes");
 const contactRoute = require("./routes/contactRoute");
+const glossaryRoutes = require("./routes/glossaryRoutes");
 
 const app = express();
 
@@ -40,6 +41,7 @@ mongoose
 app.use("/api", auth);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/contact", contactRoute);
+app.use("/api/glossary", glossaryRoutes);
 
 const PORT = process.env.PORT || 8018;
 

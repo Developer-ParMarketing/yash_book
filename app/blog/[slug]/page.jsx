@@ -288,7 +288,7 @@ export default async function Page({ params }) {
                 }
     .blog-content p {
     margin: 0 0 1rem;
-    color: #374151;
+    color: #000000;
     line-height: 1.85;
 }
 
@@ -406,7 +406,7 @@ export default async function Page({ params }) {
   padding: 18px 20px;
   font-size: 1rem;
   line-height: 1.8;
-  color: #374151;
+  color: #000000;
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
   font-family: ${cormorant.style.fontFamily};
@@ -586,12 +586,12 @@ export default async function Page({ params }) {
                                         <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200">
                                             <Image
                                                 src={blog.featuredImage.url || "/book1.png"}
-                                                // alt={blog.title}
                                                 alt={blog.featuredImage.alt || blog.title}
 
                                                 fill
                                                 className="object-cover"
                                             />
+
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-2">

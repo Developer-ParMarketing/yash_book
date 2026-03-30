@@ -61,7 +61,7 @@ export default function AboutSection() {
                     >
                         <Image
                             src="/YashProfile.png"
-                            alt="Yashasvi Prasad"
+                            alt="Profile photo of author Yashasvi Prasad surrounded by minimalist writing illustrations"
                             fill
                             className="object-contain"
                         />

@@ -103,7 +103,7 @@ const Bookreview = () => {
                         <div className="w-full max-w-md lg:max-w-none">
                             <img
                                 src="cover.jpg"
-                                alt="Book Cover"
+                                alt="Cover of the book When Staying Stops Making Sense by Yashasvi Prasad"
                                 className="w-[450] h-auto object-cover shadow-2xl rounded-sm"
                             />
                         </div>

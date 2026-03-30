@@ -344,7 +344,7 @@ function LivePreview({ blocks, faqs }) {
                     if (b.type === "h1") return <h1 key={b.id} style={{ fontSize: "1.85rem", fontWeight: 700, borderLeft: "4px solid #2563eb", paddingLeft: "0.75rem", color: "#111", lineHeight: 1.3 }}>{b.value || <em style={{ color: "#ccc", fontSize: "1rem" }}>Empty H1</em>}</h1>;
                     if (b.type === "h2") return <h2 key={b.id} style={{ fontSize: "1.5rem", fontWeight: 700, color: "#1a1a1a" }}>{b.value || <em style={{ color: "#ccc", fontSize: "1rem" }}>Empty H2</em>}</h2>;
                     if (b.type === "h3") return <h3 key={b.id} style={{ fontSize: "1.25rem", fontWeight: 600, color: "#1a1a1a" }}>{b.value || <em style={{ color: "#ccc", fontSize: "1rem" }}>Empty H3</em>}</h3>;
-                    if (b.type === "p") return <div key={b.id} style={{ color: "#374151", lineHeight: 1.85 }} dangerouslySetInnerHTML={{ __html: b.value || '<em style="color:#ccc">Empty paragraph</em>' }} />;
+                    if (b.type === "p") return <div key={b.id} style={{ color: "#000000", lineHeight: 1.85 }} dangerouslySetInnerHTML={{ __html: b.value || '<em style="color:#ccc">Empty paragraph</em>' }} />;
                     // if (b.type === "img") return b.value ? <img key={b.id} src={b.value} alt="" style={{ maxWidth: "100%", borderRadius: 8, margin: "0.5rem 0" }} /> : <em key={b.id} style={{ color: "#ccc", fontSize: "0.875rem" }}>No image URL</em>;
                     if (b.type === "img") return b.value ? <img key={b.id} src={b.value} alt={b.alt || "Blog image"} style={{ maxWidth: "100%", borderRadius: 8, margin: "0.5rem 0" }} /> : <em key={b.id} style={{ color: "#ccc", fontSize: "0.875rem" }}>No image URL</em>;
                     return null;

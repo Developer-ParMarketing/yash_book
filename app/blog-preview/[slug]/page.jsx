@@ -122,7 +122,7 @@ function BlogContent({ content, faqs }) {
                     }
                    .blog-content p {
   margin: 0 0 1rem;
-  color: #374151;
+  color: #000000;
   line-height: 1.85;
   font-size: 1.05rem;
 }
@@ -146,7 +146,7 @@ function BlogContent({ content, faqs }) {
 .blog-content p {
   font-family: ${cormorant.style.fontFamily};
   margin: 0 0 1rem;
-  color: #374151;
+  color: #000000;
   line-height: 1.85;
   font-size: 1.05rem;
 }
@@ -161,7 +161,7 @@ function BlogContent({ content, faqs }) {
 .blog-content ol {
   margin: 0 0 1rem 0;
   padding-left: 1.6rem;
-  color: #374151;
+  color: #000000;
 }
 
 /* Unordered list */
@@ -385,9 +385,8 @@ export default function Page() {
                                         <div className="relative w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-gray-200">
                                             <Image
                                                 // src={item.featuredImage || "/book1.png"}
-                                                src={blog.featuredImage.url || "/book1.png"}
-                                                // alt={blog.title}
-                                                alt={blog.featuredImage.alt || blog.title}
+                                                src={item.featuredImage?.url || "/book1.png"}
+                                                alt={item.featuredImage?.alt || item.title}
                                                 fill
                                                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                                             />
@@ -425,9 +424,8 @@ export default function Page() {
                                 >
                                     <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200">
                                         <Image
-                                            src={blog.featuredImage.url || "/book1.png"}
-                                            // alt={blog.title}
-                                            alt={blog.featuredImage.alt || blog.title}
+                                            src={item.featuredImage?.url || "/book1.png"}
+                                            alt={item.featuredImage?.alt || item.title}
                                             fill
                                             className="object-cover"
                                         />

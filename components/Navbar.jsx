@@ -34,7 +34,7 @@ const Navbar = () => {
         {
             name: "blogs",
 
-            pointer: 'blogs'
+            pointer: 'blog'
         },
         {
             name: "philosophy",
@@ -108,7 +108,7 @@ const Navbar = () => {
                             {/* Parent */}
                             <Link
                                 href={
-                                    item.pointer === "about-me" || item.pointer === "contact-us"
+                                    item.pointer === "about-me" || item.pointer === "contact-us" || item.pointer === "blog"
                                         ? `/${item.pointer}`
                                         : `/#${item.pointer}`
                                 }

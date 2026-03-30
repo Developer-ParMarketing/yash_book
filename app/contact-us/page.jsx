@@ -64,9 +64,9 @@ export default function ContactSection() {
 
 
 
-                    <h2 className={`${cinzel.className} text-4xl md:text-5xl font-serif mb-8 text-center md:text-left`}>
+                    <h1 className={`${cinzel.className} text-4xl md:text-5xl font-serif mb-8 text-center md:text-left`}>
                         SEND ME A MESSAGE
-                    </h2>
+                    </h1>
 
                     <form onSubmit={handleSubmit} className="space-y-8">
 

@@ -3,25 +3,20 @@ export const dynamic = "force-dynamic";
 export async function GET() {
     const baseUrl = "https://yashasviprasad.com";
 
-    const pages = [
-        "",
-        "/#home",
-        "/blog",
-        "/#philosophy",
-        // "/#The_Book",
-        "/#key-ideas",
-        "/#buy-the-book",
-        "/about-me",
-        "/contact-us",
-        "/glossary",
-    ];
+    const res = await fetch(
+        "https://backend.yashasviprasad.com/api/glossary",
+        { cache: "no-store" }
+    );
 
-    const urls = pages
+    const data = await res.json();
+    const glossary = data.glossary || data;
+
+    const urls = glossary
         .map(
-            (page) => `
+            (item) => `
 <url>
-<loc>${baseUrl}${page}</loc>
-<lastmod>${new Date().toISOString()}</lastmod>
+<loc>${baseUrl}/glossary/${item.slug}</loc>
+<lastmod>${new Date(item.updatedAt || item.createdAt).toISOString()}</lastmod>
 </url>`
         )
         .join("");

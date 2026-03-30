@@ -31,7 +31,7 @@ const Buybook = () => {
                     <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
                         <img
                             src="book2.png"
-                            alt="Book Cover"
+                            alt="Front and back cover mockup of the book When Staying Stops Making Sense in print and eBook formats"
                             className="
                 w-[320px]
                 sm:w-[320px]
