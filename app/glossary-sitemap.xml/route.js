@@ -10,20 +10,26 @@ export async function GET() {
         );
 
         if (!res.ok) {
-            throw new Error("API failed");
+            throw new Error("API not working");
         }
 
         const data = await res.json();
-        const glossary = data.glossary || data;
+
+        console.log("GLOSSARY API RESPONSE:", data); // 👈 IMPORTANT
+
+        const glossary = data.data || data.glossary || [];
 
         const urls = glossary
-            .map(
-                (item) => `
+            .filter(item => item && item.slug)
+            .map((item) => {
+                const safeDate = item.updatedAt || item.createdAt || new Date();
+
+                return `
 <url>
 <loc>${baseUrl}/glossary/${item.slug}</loc>
-<lastmod>${new Date(item.updatedAt || item.createdAt).toISOString()}</lastmod>
-</url>`
-            )
+<lastmod>${new Date(safeDate).toISOString()}</lastmod>
+</url>`;
+            })
             .join("");
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -36,10 +42,11 @@ ${urls}
         });
 
     } catch (error) {
-        console.error("SITEMAP ERROR:", error);
+        console.error("❌ GLOSSARY SITEMAP ERROR:", error);
 
-        return new Response("Error generating sitemap", {
-            status: 500,
-        });
+        return new Response(
+            `Error generating sitemap: ${error.message}`,
+            { status: 500 }
+        );
     }
 }
