@@ -544,9 +544,8 @@ export default async function Page({ params }) {
                                         >
                                             <div className="relative w-[68px] h-[68px] rounded-xl overflow-hidden flex-shrink-0 bg-gray-200">
                                                 <Image
-                                                    src={blog.featuredImage.url || "/book1.png"}
-                                                    // alt={blog.title}
-                                                    alt={blog.featuredImage.alt || blog.title}
+                                                    src={item.featuredImage?.url || "/book1.png"}
+                                                    alt={item.featuredImage?.alt || item.title}
 
                                                     fill
                                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -585,8 +584,8 @@ export default async function Page({ params }) {
                                     >
                                         <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200">
                                             <Image
-                                                src={blog.featuredImage.url || "/book1.png"}
-                                                alt={blog.featuredImage.alt || blog.title}
+                                                src={item.featuredImage?.url || "/book1.png"}
+                                                alt={item.featuredImage?.alt || item.title}
 
                                                 fill
                                                 className="object-cover"
