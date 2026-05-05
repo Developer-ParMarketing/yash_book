@@ -146,7 +146,7 @@ const Navbar = () => {
                             <Link
                                 key={item.name}
                                 href={
-                                    item.pointer === "about-me" || item.pointer === "contact-us"
+                                    item.pointer === "about-me" || item.pointer === "contact-us" || item.pointer === "blog"
                                         ? `/${item.pointer}`
                                         : `/#${item.pointer}`
                                 }
