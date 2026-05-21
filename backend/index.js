@@ -13,6 +13,7 @@ app.set("trust proxy", 1);
 
 const allowedOrigins = [
     "http://localhost:3000",
+    "http://localhost:4002",
     "http://yashasviprasad.com",
     "https://yashasviprasad.com",
     "https://www.yashasviprasad.com"
